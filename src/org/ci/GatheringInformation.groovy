@@ -1,7 +1,7 @@
 package org.ci
 
 /* groovylint-disable-next-line ClassJavadoc, CompileStatic, UnnecessaryPublicModifier */
-public class GatheringInformation {
+class GatheringInformation implements Serializable {
 
     /* groovylint-disable-next-line MethodReturnTypeRequired, NoDef */
     def getBranchPrefix (String branchName) {
