@@ -11,7 +11,8 @@ def getVersion(String branch, String buildNumber){
     def version
     String branchPrefix = getBranch(branch)
     if (branchPrefix ==~/feature|epicfeature|develop/) {
-        def now = LocalDateTime.now()
+        def now = new Date()
+        println now.format("yyyy.M.d", TimeZone.getTimeZone('UTC'))
         version = "${now.getYear()}.${now.getMonth()}.${now.getDay()}"
     } else if(branchPrefix ==~/release|hotfix|master/){
         for(def substring in branchPrefix.split('/')){
