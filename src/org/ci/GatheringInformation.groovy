@@ -3,15 +3,15 @@ package org.ci
 /* groovylint-disable-next-line ClassJavadoc, CompileStatic, UnnecessaryPublicModifier */
 class GatheringInformation implements Serializable {
 
-    def branchPrefix
+    def branchPrefix= ""
     
     GatheringInformation(branchName){
         print(branchName)
         if (branchName) {
-            if (branchName.indexOf('/') > 1) {
+            // if (branchName.indexOf('/') > 1) {
                 // this.branchPrefix = branchName.split('/')[1]
-                this.branchPrefix = branchName
-            }
+            this.branchPrefix = branchName
+            // }
         } else {
             error('ERROR: branchName argument not specified ')
         }
