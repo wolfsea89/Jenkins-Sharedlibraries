@@ -1,5 +1,4 @@
 def call(Object formParams, Object env ) {
-    println(env.BUILD_NUMBER.getClass())
     def setfact = [
         'branchPrefix': getBranch(formParams.branch),
         'version': getVersion(formParams.branch, env.BUILD_NUMBER)
@@ -12,7 +11,7 @@ def getVersion(String branch, String buildNumber){
     def version
     String branchPrefix = getBranch(branch)
     if (branchPrefix ==~/feature|epicfeature|develop/) {
-        def now = new Date()
+        def now = LocalDateTime.now()
         version = "${now.getYear()}.${now.getMonth()}.${now.getDay()}"
     } else if(branchPrefix ==~/release|hotfix|master/){
         for(def substring in branchPrefix.split('/')){
