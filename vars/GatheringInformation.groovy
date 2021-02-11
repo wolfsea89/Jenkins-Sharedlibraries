@@ -15,6 +15,6 @@ public class GatheringInformation {
 
 }
 
-def call{
+def call() {
     return new GatheringInformation()
 }
