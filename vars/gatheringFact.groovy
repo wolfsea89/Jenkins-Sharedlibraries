@@ -5,7 +5,9 @@ def call(Object formParams) {
 }
 
 def isBranchDevelp(String branch){
-    if(branch ==~/.*(\/develop\/)$/){
+    if(branch ==~/(.*\/develop\/)|(develop)$/){
         println('ok')
+    } else {
+        println('fail')
     }
 }
