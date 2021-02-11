@@ -1,26 +1,17 @@
 package org.ci
-
 /* groovylint-disable-next-line ClassJavadoc, CompileStatic, UnnecessaryPublicModifier */
-class GatheringInformation implements Serializable {
+public class GatheringInformation {
 
-    def branchPrefix= ""
-    
-    GatheringInformation(branchName){
-        print(branchName)
+    /* groovylint-disable-next-line MethodReturnTypeRequired, NoDef */
+    def getBranchPrefix (String branchName) {
         if (branchName) {
-            // if (branchName.indexOf('/') > 1) {
-                // this.branchPrefix = branchName.split('/')[1]
-            this.branchPrefix = branchName
-            // }
+            if (branchName.indexOf('/') > 1) {
+                /* groovylint-disable-next-line DuplicateStringLiteral */
+                return branchName.split('/')[1]
+            }
         } else {
             error('ERROR: branchName argument not specified ')
         }
-    }
-
-    /* groovylint-disable-next-line MethodReturnTypeRequired, NoDef */
-    def getBranchPrefix () {
-        print(this.branchName)
-        return this.branchPrefix
     }
 
 }
