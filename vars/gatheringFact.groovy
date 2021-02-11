@@ -1,10 +1,7 @@
-def call([
-        Object formParams,
-        Object env
-]) {
+def call(Object formParams, Object env ) {
     def setfact = [
         'branchPrefix': getBranch(formParams.branch),
-        'version': getVersion([formParams.branch,env.BUILD_NUMBER])
+        'version': getVersion([formParams.branch, env.BUILD_NUMBER])
     ]
     println(setfact)
 }
