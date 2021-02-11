@@ -7,7 +7,7 @@ def call(Object formParams) {
     
 }
 
-def getBranch(String branch) {
+def getBranch(String branch, Object env) {
     String result
     if (branch ==~ /(.*\/feature)|(feature)\/.*$/) {
         result = 'feature'
