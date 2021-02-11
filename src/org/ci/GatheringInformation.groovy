@@ -5,7 +5,6 @@ class GatheringInformation implements Serializable {
 
     String branchPrefix
 
-
     GatheringInformation(String branchName) {
         print(branchName)
         if (branchName) {
@@ -21,8 +20,7 @@ class GatheringInformation implements Serializable {
     /* groovylint-disable-next-line MethodReturnTypeRequired, NoDef */
     String getBranchPrefix () {
         println(this.branchPrefix)
-        String result = this.branchPrefix
-        return result
+        return this.branchPrefix
     }
 
 }
