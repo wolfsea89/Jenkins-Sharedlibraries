@@ -18,12 +18,11 @@ def getVersion(String branch, String buildNumber) {
         version = "${now.format('yyyy.M.d', TimeZone.getTimeZone('UTC'))}.${now.getDay()}"
 
     } else if (branchPrefix ==~ /release|hotfix|master/) {
-        
         for (def substring in branch.split('/')) {
             
             if (substring ==~ /[0-9]+\.[0-9]+$/) {
                 println(substring)
-                version = "${substring}.0"
+                version = "${substring}"
             } else if (substring ==~ /[0-9]+\.[0-9]+\.[0-9]+$/) {
                 version = "${substring}.0"
             }
