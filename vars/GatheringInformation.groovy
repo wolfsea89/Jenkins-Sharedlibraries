@@ -16,5 +16,6 @@ public class GatheringInformation {
 }
 
 def call(
-    return new GatheringInformation()
+    def result = new GatheringInformation(this)
+    return result;
 )
