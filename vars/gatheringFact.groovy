@@ -1,4 +1,4 @@
-def call(Object formParams) {
+def call(Object formParams,Object env) {
     def setfact = [
         'branchPrefix': getBranch(formParams.branch),
         'version': getVersion(formParams.branch)
@@ -18,7 +18,7 @@ def getVersion(String branch){
     }
 }
 
-def getBranch(String branch, Object env) {
+def getBranch(String branch) {
     String result
     if (branch ==~ /(.*\/feature)|(feature)\/.*$/) {
         result = 'feature'
