@@ -1,4 +1,4 @@
-def call(def formParams) {
+def call(Object formParams) {
 
     println(formParams)
 }
