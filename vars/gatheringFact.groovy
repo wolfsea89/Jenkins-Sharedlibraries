@@ -19,7 +19,7 @@ def getVersion(String branch, String buildNumber) {
 
     } else if (branchPrefix ==~ /release|hotfix|master/) {
         
-        for (def substring in branchPrefix.split('/')) {
+        for (def substring in branch.split('/')) {
             
             if (substring ==~ /[0-9]+\.[0-9]+$/) {
                 println(substring)
