@@ -1,6 +1,7 @@
 def call(Object formParams) {
     def setfact = [
         'branchPrefix': getBranch(formParams.branch)
+        'version': getVersion(formParams.branch)
     ]
     println(setfact)
     
@@ -22,4 +23,14 @@ def getBranch(String branch) {
         result = 'master'
     }
     return result
+}
+
+def getVersion(String branch){
+    String branchPrefix = getBranch(formParams.branch)
+    if(branchPrefix ==~/feature|epicfeature|develop/){
+        def now = new Date()
+        def time = now.toMonth()
+        def time = now.toYear()
+        def time = now.toMonthDay()
+    }
 }
