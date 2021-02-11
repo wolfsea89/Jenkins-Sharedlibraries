@@ -2,13 +2,13 @@ def call(Object formParams, Object env ) {
     println(env.BUILD_NUMBER.getClass())
     def setfact = [
         'branchPrefix': getBranch(formParams.branch),
-        'version': getVersion([formParams.branch, env.BUILD_NUMBER])
+        'version': getVersion(formParams.branch, env.BUILD_NUMBER)
     ]
     
     println(setfact)
 }
 
-def getVersion(String branch, def buildNumber){
+def getVersion(String branch, String buildNumber){
     def version
     String branchPrefix = getBranch(branch)
     if (branchPrefix ==~/feature|epicfeature|develop/) {
