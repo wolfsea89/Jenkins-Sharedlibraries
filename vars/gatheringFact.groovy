@@ -4,10 +4,17 @@ def call(Object formParams) {
     isBranchDevelp(formParams.branch)
 }
 
+def getBranch(String branch){
+    String result
+    if(result = isBranchDevelp(formParams.branch))
+
+    println(result)
+}
+
 def isBranchDevelp(String branch){
+    String result
     if(branch ==~/(.*\/develop\/)|(develop)$/){
-        println('ok')
-    } else {
-        println('fail')
+        result = "develop"
     }
+    return result
 }
