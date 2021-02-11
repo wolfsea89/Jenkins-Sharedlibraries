@@ -1,4 +1,4 @@
-package org.ci
+package org.ci.GatheringInformation
 
 /* groovylint-disable-next-line ClassJavadoc, CompileStatic, UnnecessaryPublicModifier */
 public class GatheringInformation {
