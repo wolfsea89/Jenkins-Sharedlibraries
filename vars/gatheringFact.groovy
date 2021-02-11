@@ -1,6 +1,6 @@
 def call(Object formParams) {
     println(formParams)
-    isBranchDevelp(formParams.branch)
+    getBranch(formParams.branch)
 }
 
 def getBranch(String branch) {
