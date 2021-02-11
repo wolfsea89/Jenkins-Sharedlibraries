@@ -1,34 +1,42 @@
 def call(Object formParams, Object env ) {
+    
     def setfact = [
         'branchPrefix': getBranch(formParams.branch),
         'version': getVersion(formParams.branch, env.BUILD_NUMBER)
     ]
-    
     println(setfact)
 }
 
-def getVersion(String branch, String buildNumber){
+def getVersion(String branch, String buildNumber) {
+    
     def version
     String branchPrefix = getBranch(branch)
-    if (branchPrefix ==~/feature|epicfeature|develop/) {
+
+    if (branchPrefix ==~ /feature|epicfeature|develop/) {
+        
         def now = new Date()
-        version = "${now.format("yyyy.M.d", TimeZone.getTimeZone('UTC'))}.${now.getDay()}"
-    } else if(branchPrefix ==~/release|hotfix|master/){
-        for(def substring in branchPrefix.split('/')){
-            if(substring ==~ /[0-9]+\.[0-9]+$/){
+        version = "${now.format('yyyy.M.d', TimeZone.getTimeZone('UTC'))}.${now.getDay()}"
+
+    } else if (branchPrefix ==~ /release|hotfix|master/) {
+        
+        for (def substring in branchPrefix.split('/')) {
+            
+            if (substring ==~ /[0-9]+\.[0-9]+$/) {
+                println(substring)
                 version = "${substring}.0"
-            } else if (substring ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
+            } else if (substring ==~ /[0-9]+\.[0-9]+\.[0-9]+$/) {
                 version = "${substring}.0"
             }
         }
     }
-    if (version != ""){
+    if (version != '') {
+        
         result = [
             'semanticVersion': "${version}",
             'semanticVersionWithBuildNumber': "${version}.${buildNumber}"
         ]
     } else {
-        error("ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)")
+        error('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
     }
     println(result)
 }
@@ -48,7 +56,7 @@ def getBranch(String branch) {
     } else if (branch ==~ /(.*\/master)|(master)$/) {
         result = 'master'
     } else {
-        error("ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)")
+        error('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
     }
     return result
 }
