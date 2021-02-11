@@ -2,7 +2,7 @@ def call(Object formParams, Object env ) {
     
     def setfact = [
         'branchPrefix': getBranch(formParams.branch),
-        'version': getVersion(formParams.branch, env.BUILD_NUMBER)
+        'version': getVersion(formParams.branch, env.BUILD_NUMBER,formParams.manualVersion)
     ]
     println(setfact)
 }
@@ -18,13 +18,24 @@ def getVersion(String branch, String buildNumber) {
         version = "${now.format('yyyy.M.d', TimeZone.getTimeZone('UTC'))}.${now.getDay()}"
 
     } else if (branchPrefix ==~ /release|hotfix|master/) {
-        for (def substring in branch.split('/')) {
+
+        if (branch ==~ /(.*\/(release|hotfix|master))|(release|hotfix|master)$/){
             
-            if (substring ==~ /[0-9]+\.[0-9]+$/) {
-                println(substring)
-                version = "${substring}"
-            } else if (substring ==~ /[0-9]+\.[0-9]+\.[0-9]+$/) {
-                version = "${substring}.0"
+            if (manualVersion ==~ /[0-9]+\.[0-9]+\.[0-9]+$/) {
+                version = "${manualVersion}"
+            } else {
+                error('ERROR: Invalid set manual version')
+            }
+
+        } else {
+            
+            for (def substring in branch.split('/')) {
+                
+                if (substring ==~ /[0-9]+\.[0-9]+$/) {
+                    version = "${substring}"
+                } else if (substring ==~ /[0-9]+\.[0-9]+\.[0-9]+$/) {
+                    version = "${substring}.0"
+                }
             }
         }
     }
@@ -35,7 +46,7 @@ def getVersion(String branch, String buildNumber) {
             'semanticVersionWithBuildNumber': "${version}.${buildNumber}"
         ]
     } else {
-        error('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
+        error('ERROR: I can\'t set the version')
     }
     println(result)
 }
