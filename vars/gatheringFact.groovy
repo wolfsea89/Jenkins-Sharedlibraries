@@ -5,17 +5,20 @@ def call(Object formParams) {
 
 def getBranch(String branch) {
     String result
-    String develop = isBranchDevelop(branch)
-    String feature = isBranchFeature(branch)
-    String epicfeature = isBranchEpicfeature(branch)
-    String release = isBranchRelease(branch)
-    // if(result = isBranchDevelp(.branch))
-
+    if (branch ==~ /(.*\/feature)|(feature)\/.*$/) {
+        result = 'feature'
+    } else if (branch ==~ /(.*\/epicfeature)|(epicfeature)\/.*$/) {
+        result = 'epicfeature'
+    } else if (branch ==~ /(.*\/develop)|(develop)$/) {
+        result = 'develop'
+    } else if (branch ==~ /(.*\/release)|(release)\/.*$/) {
+        result = 'release'
+    } else if (branch ==~ /(.*\/hotfix)|(hotfix)\/.*$/) {
+        result = 'hotfix'
+    } else if (branch ==~ /(.*\/master)|(master)$/) {
+        result = 'hotfix'
+    }
     println(result)
-    println(develop)
-    println(feature)
-    println(epicfeature)
-    println(release)
 }
 
 String isBranchFeature(String branch) {
