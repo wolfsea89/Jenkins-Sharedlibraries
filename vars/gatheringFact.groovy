@@ -3,6 +3,7 @@ def call(Object formParams, Object env ) {
         'branchPrefix': getBranch(formParams.branch),
         'version': getVersion([formParams.branch, env.BUILD_NUMBER])
     ]
+    println(env.BUILD_NUMBER.getClass())
     println(setfact)
 }
 
