@@ -8,7 +8,7 @@ class GatheringInformation implements Serializable {
         this.pipeline = pipeline
     }
 
-    public  void setBranchName (String branchName) {
+    public static void setBranchName (String branchName) {
         this.branchName = branchName
     }
 
