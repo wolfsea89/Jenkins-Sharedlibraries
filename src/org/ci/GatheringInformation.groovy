@@ -1,7 +1,7 @@
 package org.ci
 
 /* groovylint-disable-next-line ClassJavadoc, CompileStatic, UnnecessaryPublicModifier */
-class GatheringInformation {
+public class GatheringInformation {
 
     String branchPrefix
     
