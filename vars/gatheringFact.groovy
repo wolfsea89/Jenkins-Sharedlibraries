@@ -5,11 +5,11 @@ def call(Object formParams) {
 
 def getBranch(String branch) {
     String result
-    String develop = isBranchDevelop(formParams.branch)
-    String feature = isBranchFeature(formParams.branch)
-    String epicfeature = isBranchEpicfeature(formParams.branch)
-    String release = isBranchRelease(formParams.branch)
-    // if(result = isBranchDevelp(formParams.branch))
+    String develop = isBranchDevelop(branch)
+    String feature = isBranchFeature(branch)
+    String epicfeature = isBranchEpicfeature(branch)
+    String release = isBranchRelease(branch)
+    // if(result = isBranchDevelp(.branch))
 
     println(result)
     println(develop)
