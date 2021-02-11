@@ -1,6 +1,6 @@
 def call(Object formParams) {
     def setfact = [
-        'branchPrefix': getBranch(formParams.branch)
+        'branchPrefix': getBranch(formParams.branch),
         'version': getVersion(formParams.branch)
     ]
     println(setfact)
