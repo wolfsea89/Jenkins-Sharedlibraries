@@ -7,6 +7,7 @@ def branchNamePrefix = ""
 // }
 
 def call (String branchName) {
+    println(branchName)
     if (branchName) {
         if (branchName.indexOf('/') > 1) {
             /* groovylint-disable-next-line DuplicateStringLiteral */
