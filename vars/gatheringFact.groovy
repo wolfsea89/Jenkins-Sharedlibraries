@@ -40,15 +40,14 @@ def getVersion(String branch, String buildNumber, String manualVersion) {
         }
     }
     if (version != '') {
-        
-        result = [
+        return [
             'semanticVersion': "${version}",
             'semanticVersionWithBuildNumber': "${version}.${buildNumber}"
         ]
     } else {
         error('ERROR: I can\'t set the version')
     }
-    println(result)
+    
 }
 
 def getBranch(String branch) {
