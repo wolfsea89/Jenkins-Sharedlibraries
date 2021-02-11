@@ -1,4 +1,4 @@
-def call(UnmodifiableMap formParams) {
+def call(def formParams) {
 
     println(formParams)
 }
