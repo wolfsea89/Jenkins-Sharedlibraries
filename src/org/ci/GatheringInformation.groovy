@@ -5,8 +5,7 @@ class GatheringInformation implements Serializable {
 
     def branchPrefix
     
-    GatheringInformation(env, branchName){
-        this.env = env
+    GatheringInformation(branchName){
         print(branchName)
         if (branchName) {
             if (branchName.indexOf('/') > 1) {
