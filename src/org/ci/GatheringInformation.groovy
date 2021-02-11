@@ -11,7 +11,7 @@ class GatheringInformation implements Serializable {
     GatheringInformation() {
     }
 
-    public void setBranchName (String branchName) {
+    void setBranchName (String branchName) {
         this.branchName = branchName
     }
 
