@@ -3,15 +3,15 @@ package org.ci
 /* groovylint-disable-next-line ClassJavadoc, CompileStatic, UnnecessaryPublicModifier */
 class GatheringInformation {
 
-    def branchPrefix= ""
+    String branchPrefix
     
-    GatheringInformation(String branchName){
+    GatheringInformation(String branchName) {
         print(branchName)
         if (branchName) {
-            // if (branchName.indexOf('/') > 1) {
-                // this.branchPrefix = branchName.split('/')[1]
+        // if (branchName.indexOf('/') > 1) {
+        // this.branchPrefix = branchName.split('/')[1]
         this.branchPrefix = branchName
-            // }
+        // }
         } else {
             error('ERROR: branchName argument not specified ')
         }
