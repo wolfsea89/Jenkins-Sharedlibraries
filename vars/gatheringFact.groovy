@@ -32,9 +32,9 @@ def getVersion(String branch, String buildNumber, String manualVersion) {
             for (def substring in branch.split('/')) {
                 
                 if (substring ==~ /[0-9]+\.[0-9]+$/) {
-                    version = "${substring}"
-                } else if (substring ==~ /[0-9]+\.[0-9]+\.[0-9]+$/) {
                     version = "${substring}.0"
+                } else if (substring ==~ /[0-9]+\.[0-9]+\.[0-9]+$/) {
+                    version = "${substring}"
                 }
             }
         }
