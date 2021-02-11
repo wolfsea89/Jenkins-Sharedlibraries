@@ -3,7 +3,7 @@ package org.ci
 /* groovylint-disable-next-line ClassJavadoc, CompileStatic, UnnecessaryPublicModifier */
 class GatheringInformation {
 
-    String branchPrefix
+    def branchPrefix
     
     GatheringInformation(String branchName) {
         print(branchName)
@@ -18,9 +18,9 @@ class GatheringInformation {
     }
 
     /* groovylint-disable-next-line MethodReturnTypeRequired, NoDef */
-    String getBranchPrefix () {
+    def getBranchPrefix () {
         print(this.branchName)
-        return this.branchPrefix.toString()
+        return this.branchPrefix
     }
 
 }
