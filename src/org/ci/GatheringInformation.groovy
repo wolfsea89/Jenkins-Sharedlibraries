@@ -1,8 +1,22 @@
 package org.ci
 
-// /* groovylint-disable-next-line ClassJavadoc, CompileStatic, UnnecessaryPublicModifier */
-// public class GatheringInformation {
+class GatheringInformation implements Serializable {
+    def pipeline
+    def branchName
 
+    GatheringInformation(def pipeline) {
+        this.pipeline = pipeline
+    }
+
+    def setBranchName (String branchName) {
+        this.branchName = branchName
+    }
+
+    def getBranchPrefix (){
+        return this.branchName
+    }
+
+}
 //     String branchPrefix
 
 //     GatheringInformation(String branchName) {
