@@ -19,6 +19,7 @@ class GatheringInformation implements Serializable {
 
     /* groovylint-disable-next-line MethodReturnTypeRequired, NoDef */
     def getBranchPrefix () {
+        print(this.branchName)
         return this.branchPrefix
     }
 
