@@ -9,7 +9,8 @@ class GatheringInformation implements Serializable {
         print(branchName)
         if (branchName) {
             if (branchName.indexOf('/') > 1) {
-                this.branchPrefix = branchName.split('/')[1]
+                // this.branchPrefix = branchName.split('/')[1]
+                this.branchPrefix = branchName
             }
         } else {
             error('ERROR: branchName argument not specified ')
