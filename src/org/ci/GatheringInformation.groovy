@@ -1,13 +1,21 @@
 package org.ci
 
-class GatheringInformation {
+class GatheringInformation implements Serializable {
+
+    def pipeline
     def branchName
 
-    public static void setBranchName (String branchName) {
+    GatheringInformation(def pipeline) {
+        this.pipeline = pipeline
+    }
+    GatheringInformation() {
+    }
+
+    public void setBranchName (String branchName) {
         this.branchName = branchName
     }
 
-    def getBranchPrefix (){
+    def getBranchPrefix () {
         return this.branchName
     }
 
