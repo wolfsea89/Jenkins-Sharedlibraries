@@ -26,8 +26,8 @@ def getBranch(String branch) {
 }
 
 def getVersion(String branch){
-    String branchPrefix = getBranch(formParams.branch)
-    if(branchPrefix ==~/feature|epicfeature|develop/){
+    String branchPrefix = getBranch(branch)
+    if (branchPrefix ==~/feature|epicfeature|develop/) {
         def now = new Date()
         def time1 = now.toMonth()
         def time2 = now.toYear()
