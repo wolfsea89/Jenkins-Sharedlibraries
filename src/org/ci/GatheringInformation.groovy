@@ -13,7 +13,7 @@ class GatheringInformation {
         this.branchPrefix = branchName
         // }
         } else {
-            error('ERROR: branchName argument not specified ')
+            println('ERROR: branchName argument not specified ')
         }
     }
 
