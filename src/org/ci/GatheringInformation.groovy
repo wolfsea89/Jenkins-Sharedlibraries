@@ -19,7 +19,7 @@ class GatheringInformation {
 
     /* groovylint-disable-next-line MethodReturnTypeRequired, NoDef */
     String getBranchPrefix () {
-        def result = this.branchName
+        def result = this.branchPrefix
         return result
     }
 
