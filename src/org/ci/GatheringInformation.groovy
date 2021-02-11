@@ -4,7 +4,8 @@ package org.ci
 class GatheringInformation implements Serializable {
 
     String branchPrefix
-    
+
+
     GatheringInformation(String branchName) {
         print(branchName)
         if (branchName) {

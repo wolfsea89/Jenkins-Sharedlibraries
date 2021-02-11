@@ -1,19 +1,19 @@
-import org.ci.GatheringInformation
+// import org.ci.GatheringInformation
 
-def branchNamePrefix = ""
+// def branchNamePrefix = ""
 
-// def call() {
-//     return new GatheringInformation()
+// // def call() {
+// //     return new GatheringInformation()
+// // }
+
+// def call (String branchName) {
+//     println(branchName)
+//     if (branchName) {
+//         if (branchName.indexOf('/') > 1) {
+//             /* groovylint-disable-next-line DuplicateStringLiteral */
+//             return branchName.split('/')[1]
+//         }
+//     } else {
+//         error('ERROR: branchName argument not specified ')
+//     }
 // }
-
-def call (String branchName) {
-    println(branchName)
-    if (branchName) {
-        if (branchName.indexOf('/') > 1) {
-            /* groovylint-disable-next-line DuplicateStringLiteral */
-            return branchName.split('/')[1]
-        }
-    } else {
-        error('ERROR: branchName argument not specified ')
-    }
-}
