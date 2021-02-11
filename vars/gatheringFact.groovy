@@ -2,12 +2,12 @@ def call(Object formParams, Object env ) {
     
     def setfact = [
         'branchPrefix': getBranch(formParams.branch),
-        'version': getVersion(formParams.branch, env.BUILD_NUMBER,formParams.manualVersion)
+        'version': getVersion(formParams.branch, env.BUILD_NUMBER, formParams.manualVersion)
     ]
     println(setfact)
 }
 
-def getVersion(String branch, String buildNumber) {
+def getVersion(String branch, String buildNumber, String manualVersion) {
     
     def version
     String branchPrefix = getBranch(branch)
