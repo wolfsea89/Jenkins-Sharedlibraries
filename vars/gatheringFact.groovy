@@ -1,5 +1,5 @@
 def call(Object formParams) {
-    Array setfact = [
+    String[] setfact = [
         'branchPrefix': getBranch(formParams.branch)
     ]
     println(setfact)
