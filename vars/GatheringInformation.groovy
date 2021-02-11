@@ -1,5 +1,5 @@
 /* groovylint-disable-next-line ClassJavadoc, CompileStatic, UnnecessaryPublicModifier */
-public class GatheringInformation {
+class GatheringInformation {
 
     /* groovylint-disable-next-line MethodReturnTypeRequired, NoDef */
     def getBranchPrefix (String branchName) {
