@@ -29,9 +29,9 @@ def getVersion(String branch){
     String branchPrefix = getBranch(branch)
     if (branchPrefix ==~/feature|epicfeature|develop/) {
         def now = new Date()
-        def time1 = now.toMonth()
-        def time2 = now.toYear()
-        def time3 = now.toMonthDay()
+        def time1 = now.getMonth()
+        def time2 = now.getYear()
+        def time3 = now.getDay()
         println("${time1},${time2},${time3}")
     }
 }
