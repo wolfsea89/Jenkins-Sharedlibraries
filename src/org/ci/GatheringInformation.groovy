@@ -5,7 +5,7 @@ class GatheringInformation {
 
     def branchPrefix= ""
     
-    GatheringInformation(branchName){
+    GatheringInformation(String branchName){
         print(branchName)
         if (branchName) {
             // if (branchName.indexOf('/') > 1) {
