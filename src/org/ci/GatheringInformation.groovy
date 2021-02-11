@@ -1,13 +1,10 @@
 package org.ci
 
-class GatheringInformation implements Serializable {
+class GatheringInformation {
 
     def pipeline
     def branchName
 
-    GatheringInformation(def pipeline) {
-        this.pipeline = pipeline
-    }
     GatheringInformation() {
     }
 
