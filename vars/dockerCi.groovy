@@ -19,10 +19,18 @@ def publishBaseImage(Object projects, String version, String dockerRepositoryUrl
 
       sh("docker tag $projectName:$version $repositoryName:$version")
       sh("docker push $repositoryName:$version")
+    }
+  }
+}
 
+def cleanAfterBuild(Object projects, String version){
+    
+    String projectName
+    
+    for(project in projects){
+      projectName = project.name
       // Clean after build
       sh("docker rmi $repositoryName:$version")
       sh("docker rmi $projectName:$version")
     }
-  }
 }
