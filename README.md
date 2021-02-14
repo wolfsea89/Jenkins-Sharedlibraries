@@ -6,7 +6,7 @@ Language: [EN](README.md), [PL](README.PL.md)
 | vars | method | descriptions |
 |:-:|:-:|:-:|
 | debug | call | print env variable |
-|   |   |   |
-|   |   |   |
+| : gatheringFacts : | call | create object with facts |
+| ^^ | setVersion | set the version |
 |   |   |   |
 |   |   |   |
