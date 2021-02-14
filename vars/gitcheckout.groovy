@@ -6,7 +6,7 @@ def application(String branchName, String repositoryUrl, String gitCredentialId)
     ],
     userRemoteConfigs: [
       [
-        url: gatheringFact.repositoryUrl,
+        url: repositoryUrl,
         credentialsId: gitCredentialId
       ]
     ]
