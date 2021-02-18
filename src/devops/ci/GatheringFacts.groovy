@@ -32,6 +32,7 @@ class GatheringFacts {
         }
         
     }
+
     @NonCPS
     public Boolean isFeature(){
         if (this.branchName ==~ /(.*\/feature)|(feature)\/.*$/){
@@ -39,6 +40,7 @@ class GatheringFacts {
             return true
         }
     }
+    
     @NonCPS
     public Boolean isEpicFeature(){
         if (this.branchName ==~ /(.*\/epicfeature)|(epicfeature)\/.*$/){
@@ -47,6 +49,7 @@ class GatheringFacts {
         }
     }
 
+    @NonCPS
     public Boolean isDevelop(){
         if (this.branchName ==~ /(.*\/develop)|(develop)$/){
             this.branchNamePrefix = 'develop'
@@ -54,6 +57,7 @@ class GatheringFacts {
         }
     }
 
+    @NonCPS
     public Boolean isReleaase(){
         if (this.branchName ==~ /(.*\/release|release)(\/([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.0)|)$/){
             this.branchNamePrefix = 'release'
@@ -61,6 +65,7 @@ class GatheringFacts {
         }
     }
 
+    @NonCPS
     public Boolean isHotfix(){
         if (this.branchName ==~ /(.*\/hotfix|hotfix)(\/([0-9]+\.[0-9]+\.[0-9]+)|)$/){
             this.branchNamePrefix = 'hotfix'
@@ -68,6 +73,7 @@ class GatheringFacts {
         }
     }
 
+    @NonCPS
     public Boolean isMaster(){
         if (this.branchName ==~ /(.*\/master)|(master)$/){
             this.branchNamePrefix = 'master'
@@ -75,6 +81,7 @@ class GatheringFacts {
         }
     }
 
+    @NonCPS
     public String setArifactType(){
         this.artifactType = (this.branchNamePrefix ==~/^release|hotfix$/) ? 'release' : 'snapshot'
     }
