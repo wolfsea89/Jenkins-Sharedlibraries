@@ -110,8 +110,8 @@ class GatheringFacts {
             if(this.manualVersion){
                 version = "${manualVersion}"
             } else {
-                version = (this.branchName =~ /[0-9]+\.[0-9]+\.[0-9]+$/)[0]
-                version = (this.branchName =~ /[0-9]+\.[0-9]+$/)[0]
+                version = (this.branchName =~ /[0-9]+\.[0-9]+\.[0-9]+$/)
+                version = (this.branchName =~ /[0-9]+\.[0-9]+$/)
             }
         }
         this.version = version
