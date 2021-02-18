@@ -8,9 +8,12 @@ class GatheringFacts implements IGatheringFacts {
 
     private String branchName
     private String branchNamePrefix
-    // GatheringFacts(){
 
-    // }
+    def steps
+    
+    GatheringFacts(steps){
+        this.steps = steps
+    }
 
     public GatheringFacts setBranchName(String branchName){
         this.branchName = branchName
