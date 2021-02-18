@@ -133,7 +133,7 @@ class GatheringFacts {
         this.version = version
     }
 
-    public void covertApplicationJsonToObject(def jsonString){
+    public void covertApplicationJsonToObject(String jsonString){
         this.applicationConfiguration = new JsonSlurper().parseText(jsonString)
     }
 }
