@@ -134,6 +134,6 @@ class GatheringFacts {
     }
 
     public void covertApplicationJsonToObject(def jsonString){
-        this.applicationConfiguration = new JsonSlurper().parse(jsonString)
+        this.applicationConfiguration = new JsonSlurper().parse(File this.applicationJsonFile)
     }
 }
