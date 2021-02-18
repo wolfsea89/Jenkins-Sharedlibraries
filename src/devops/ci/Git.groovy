@@ -9,7 +9,7 @@ class Git implements Serializable {
   }
 
   def checkoutApplicationRepository(String branchName, String repositoryUrl){
-    checkout([
+    this.pipeline.checkout([
       $class: 'GitSCM',
       branches: branchName,
       userRemoteConfigs: [
@@ -21,7 +21,7 @@ class Git implements Serializable {
   }
 
   def checkoutJenkinsSripts(String tagetDirectory){
-    checkout([
+    this.pipeline.checkout([
       $class: 'GitSCM',
       branches: scm.branches,
       doGenerateSubmoduleConfigurations: scm.doGenerateSubmoduleConfigurations,
