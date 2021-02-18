@@ -132,6 +132,6 @@ class GatheringFacts {
     }
 
     public void readApplicationConfigurationFiles(){
-        this applicationConfiguration = readJSON file: this.applicationJsonFile
+        this.applicationConfiguration = readJSON file: this.applicationJsonFile
     }
 }
