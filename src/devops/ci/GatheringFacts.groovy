@@ -9,7 +9,6 @@ class GatheringFacts implements IGatheringFacts {
     
     GatheringFacts(){ }
 
-    @Override
     public GatheringFacts setBranchName(String branchName){
         this.branchName = branchName
         this.setBranchPrefix()
@@ -24,7 +23,6 @@ class GatheringFacts implements IGatheringFacts {
         return this.branchName
     }
 
-    @Override
     private def setBranchPrefix(){
 
         String branchNamePrefixx
