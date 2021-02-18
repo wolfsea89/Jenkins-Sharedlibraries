@@ -15,7 +15,7 @@ class GatheringFacts implements IGatheringFacts {
         return this
     }
 
-    public String getPrefix(){
+    public String getBranchNamePrefix(){
         return this.branchNamePrefix
     }
 
