@@ -9,7 +9,7 @@ class GatheringFacts implements IGatheringFacts {
 
     @Override
     void setParams(def params){
-        this.params
+        this.params = params
     }
 
     def getParams(){
