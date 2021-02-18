@@ -15,6 +15,7 @@ class GatheringFacts {
     String versionWithBuildNumber
     String jenkinsScriptDirectory
     String gitCredentialId
+    String applicationJsonFile
 
     GatheringFacts(def params, def env){
         // Params
@@ -33,6 +34,7 @@ class GatheringFacts {
         this.workspace = env.WORKSPACE
         this.jenkinsScriptDirectory = env.JENKINSFILE_SCRIPTS_DIR
         this.gitCredentialId = env.GIT_CREDS_ID
+        this.applicationJsonFile = this.workspace + '/' + env.APP_CONFIGURATION_JSON_PATH
 
         // Set variables
         isFeature()
