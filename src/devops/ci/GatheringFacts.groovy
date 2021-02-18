@@ -23,8 +23,9 @@ class GatheringFacts implements IGatheringFacts {
         return this.branchName
     }
 
+    @Override
     private def setBranchPrefix(){
-        
+
         String branchNamePrefixx
 
         switch(this.branchName) {
