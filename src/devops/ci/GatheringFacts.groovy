@@ -1,6 +1,7 @@
 package devops.ci
 
 import groovy.json.JsonSlurper
+import java.io.File
 
 class GatheringFacts {
 
@@ -133,7 +134,10 @@ class GatheringFacts {
         this.version = version
     }
 
-    public void readApplicationConfigurationFiles(String path){
-        this.applicationConfiguration = new JsonSlurper().parse(path)
+    public void covertApplicationJsonToObject(String jsonString){
+        File file = new File(this.workspace , this.applicationJsonFile)
+        def jsonSlurper = new JsonSlurper()
+        this.applicationConfiguration = jsonSlurper.parse(file)
+        // this.applicationConfiguration = readJSON file: this.applicationJsonFile
     }
 }
