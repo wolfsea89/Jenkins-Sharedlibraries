@@ -1,7 +1,7 @@
 package devops.ci
 
 interface IGatheringFacts extends Serializable {
-    void setParams(Object params);
+    void setParams(LinkedHashMap params);
 
 
 }
