@@ -8,7 +8,7 @@ class Git implements Serializable {
     this.pipeline = pipeline
   }
 
-  def checkoutApplicationRepository(String branchName, String repositoryUrl){
+  def checkoutApplicationRepository(String branchName, String repositoryUrl, String gitCredentialId){
     this.pipeline.checkout([
       $class: 'GitSCM',
       branches: [
@@ -17,7 +17,7 @@ class Git implements Serializable {
       userRemoteConfigs: [
         [
           url: repositoryUrl,
-          credentialsId: this.pipeline.scm.credentialsId
+          credentialsId: gitCredentialId
         ]
       ]
     ])
