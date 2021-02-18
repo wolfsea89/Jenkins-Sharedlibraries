@@ -24,8 +24,10 @@ class GatheringFacts implements Serializable {
     String gitCredentialId
     String applicationJsonFile
     Object applicationConfiguration
+    def pipeline
 
-    GatheringFacts(def params, def env){
+    GatheringFacts(def pipeline, def params, def env){
+        this.pipeline = pipeline
         // Params
         this.branchName = params.branch
         this.repositoryUrl = params.repositoryUrl
