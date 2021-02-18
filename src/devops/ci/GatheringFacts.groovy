@@ -37,7 +37,7 @@ class GatheringFacts {
         this.workspace = env.WORKSPACE
         this.jenkinsScriptDirectory = env.JENKINSFILE_SCRIPTS_DIR
         this.gitCredentialId = env.GIT_CREDS_ID
-        this.applicationJsonFile = nv.WORKSPACE + '/' + env.APP_CONFIGURATION_JSON_PATH
+        this.applicationJsonFile = env.WORKSPACE + '/' + env.APP_CONFIGURATION_JSON_PATH
 
         // Set variables
         isFeature()
