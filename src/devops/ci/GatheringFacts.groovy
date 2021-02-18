@@ -110,12 +110,15 @@ class GatheringFacts {
             if(this.manualVersion){
                 version = "${manualVersion}"
             // } else if() {
+            } esle {
+                def substring = this.branchName.split('/')
+                version = (substring.last() ==~ /(.*)([0-9]+\.[0-9]+)$/) ? "${substringlast()}.0" : null
             }
                 // def match = (this.branchName =~ /[0-9]+\.[0-9]+\.[0-9]+$/)
                 // version = match.find() ? match.group(1) : null
 
-                def match = (this.branchName =~ /(.*)([0-9]+\.[0-9]+)$/)
-                version = match.group(1)
+                // def match = (this.branchName =~ /(.*)([0-9]+\.[0-9]+)$/)
+                // version = match.group(1)
 
             // }
         }
