@@ -1,6 +1,6 @@
 package devops.ci
 
-class GatheringFacts implements IGatheringFacts {
+class GatheringFacts extends Serializable  {
 
     private static final defaultBranchPrefix = 'feature'
 
