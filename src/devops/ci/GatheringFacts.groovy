@@ -1,5 +1,7 @@
 package devops.ci
 
+import groovy.util.logging.Log
+
 class GatheringFacts implements IGatheringFacts {
 
     private static final defaultBranchPrefix = 'feature'
@@ -39,6 +41,7 @@ class GatheringFacts implements IGatheringFacts {
         } else if (branchName ==~ /(.*\/master)|(master)$/) {
             this.branchNamePrefix = 'master'
         } else {
+            log.warning('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
             throw new MissingFormatArgumentException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
         }
     }
