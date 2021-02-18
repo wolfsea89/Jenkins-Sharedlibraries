@@ -14,6 +14,7 @@ class GatheringFacts {
     String version
     String versionWithBuildNumber
     String jenkinsScriptDirectory
+    String gitCredentialId
 
     GatheringFacts(def params, def env){
         // Params
@@ -31,6 +32,7 @@ class GatheringFacts {
         this.nodeName = env.NODE_NAME
         this.workspace = env.WORKSPACE
         this.jenkinsScriptDirectory = env.JENKINSFILE_SCRIPTS_DIR
+        this.gitCredentialId = env.GIT_CREDS_ID
 
         // Set variables
         isFeature()
