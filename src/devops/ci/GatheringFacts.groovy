@@ -15,14 +15,6 @@ class GatheringFacts implements Serializable  {
         return this
     }
 
-    String getBranchNamePrefix(){
-        return this.branchNamePrefix
-    }
-
-    String getBranchName(){
-        return this.branchName
-    }
-
     private void setPrefix(String branchName){
         this.branchNamePrefix = (branchName ==~ /(.*\/feature)|(feature)\/.*$/) ?: 'feature'
             
