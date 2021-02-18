@@ -6,6 +6,10 @@ class GatheringFacts {
 
     GatheringFacts(){ }
 
+    public setParams(def params){
+        
+    }
+
 }
 
     // private String branchNamePrefix
