@@ -20,6 +20,10 @@ class GatheringFacts implements IGatheringFacts {
         return this.branchNamePrefix
     }
 
+    public String getBranchName(){
+        return this.branchName
+    }
+
     private void setBranchPrefix(String branchName){
 
         if (branchName ==~ /(.*\/feature)|(feature)\/.*$/) {
