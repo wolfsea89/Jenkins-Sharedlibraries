@@ -23,7 +23,7 @@ class GatheringFacts {
     String jenkinsScriptDirectory
     String gitCredentialId
     String applicationJsonFile
-    String applicationConfiguration
+    Object applicationConfiguration
 
     GatheringFacts(def params, def env){
         // Params
