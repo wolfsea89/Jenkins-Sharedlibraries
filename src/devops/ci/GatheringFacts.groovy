@@ -7,7 +7,7 @@ import jenkins.model.*
 import hudson.*
 import hudson.model.*  
 
-class GatheringFacts {
+class GatheringFacts implements Serializable {
 
     String branchName
     String repositoryUrl
