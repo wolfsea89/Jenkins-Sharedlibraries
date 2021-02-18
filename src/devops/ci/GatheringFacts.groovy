@@ -27,7 +27,9 @@ class GatheringFacts {
         isHotfix()
         isMaster()
         setArifactType()
-        (this.branchNamePrefix != null) ?: throw new IllegalArgumentException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
+        if (this.branchNamePrefix == null) {
+            throw new IllegalArgumentException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
+        }
         
     }
 
