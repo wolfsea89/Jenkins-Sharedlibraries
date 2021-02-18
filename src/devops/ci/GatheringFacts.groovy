@@ -23,6 +23,7 @@ class GatheringFacts {
     String jenkinsScriptDirectory
     String gitCredentialId
     String applicationJsonFile
+    String applicationConfiguration
 
     GatheringFacts(def params, def env){
         // Params
@@ -136,12 +137,5 @@ class GatheringFacts {
             }
         }
         this.version = version
-    }
-
-    public void readApplicationConfigurationFiles(String jsonString){
-        def file = readFileFromWorkspace(this.applicationJsonFile)
-        def jsonSlurper = new JsonSlurper()
-        this.applicationConfiguration = jsonSlurper.parse(file)
-        // this.applicationConfiguration = readJSON file: this.applicationJsonFile
     }
 }
