@@ -111,7 +111,7 @@ class GatheringFacts {
                 version = "${manualVersion}"
             } else {
                 version = (this.manualVersion =~ /[0-9]+\.[0-9]+\.[0-9]+$/)
-                version = (this.manualVersion =~ /[0-9]+\.[0-9]+$/) + ".0"
+                version = (this.manualVersion =~ /[0-9]+\.[0-9]+$/)
             }
         }
         this.version = version
