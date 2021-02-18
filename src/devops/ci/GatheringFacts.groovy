@@ -30,21 +30,21 @@ class GatheringFacts implements IGatheringFacts {
     private void setBranchPrefix(String branchName){
         pipeline.echo"WSK-1"
 
-        if (branchName ==~ /(.*\/feature)|(feature)\/.*$/) {
-            this.branchNamePrefix = 'feature'
-        } else if (branchName ==~ /(.*\/epicfeature)|(epicfeature)\/.*$/) {
-            this.branchNamePrefix = 'epicfeature'
-        } else if (branchName ==~ /(.*\/develop)|(develop)$/) {
-            this.branchNamePrefix = 'develop'
-        } else if (branchName ==~ /(.*\/release|release)(\/([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.0)|)$/) {
-            this.branchNamePrefix = 'release'
-        } else if (branchName ==~ /(.*\/hotfix|hotfix)(\/([0-9]+\.[0-9]+\.[0-9]+)|)$/) {
-            this.branchNamePrefix = 'hotfix'
-        } else if (branchName ==~ /(.*\/master)|(master)$/) {
-            this.branchNamePrefix = 'master'
-        } else {
-            pipeline.error('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
-        }
+        // if (branchName ==~ /(.*\/feature)|(feature)\/.*$/) {
+        //     this.branchNamePrefix = 'feature'
+        // } else if (branchName ==~ /(.*\/epicfeature)|(epicfeature)\/.*$/) {
+        //     this.branchNamePrefix = 'epicfeature'
+        // } else if (branchName ==~ /(.*\/develop)|(develop)$/) {
+        //     this.branchNamePrefix = 'develop'
+        // } else if (branchName ==~ /(.*\/release|release)(\/([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.0)|)$/) {
+        //     this.branchNamePrefix = 'release'
+        // } else if (branchName ==~ /(.*\/hotfix|hotfix)(\/([0-9]+\.[0-9]+\.[0-9]+)|)$/) {
+        //     this.branchNamePrefix = 'hotfix'
+        // } else if (branchName ==~ /(.*\/master)|(master)$/) {
+        //     this.branchNamePrefix = 'master'
+        // } else {
+        //     pipeline.error('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
+        // }
     }
 
 
