@@ -8,24 +8,24 @@ class GatheringFacts {
 
 }
 
-    private String branchNamePrefix
-    private String Version
-    private String repositoryUrl
-    private String jobName
-    private String buildNumber
-    private String artifactType
-    private String nodeName
-    private String workspace
-        // 'jobName':        env.JOB_BASE_NAME,
-        // 'jobBuildNumber': env.BUILD_NUMBER,
-        // 'artifactType':   artifactType,
+    // private String branchNamePrefix
+    // private String Version
+    // private String repositoryUrl
+    // private String jobName
+    // private String buildNumber
+    // private String artifactType
+    // private String nodeName
+    // private String workspace
+    //     // 'jobName':        env.JOB_BASE_NAME,
+    //     // 'jobBuildNumber': env.BUILD_NUMBER,
+    //     // 'artifactType':   artifactType,
     
-    GatheringFacts(){
-        // this.nodeName  = env.NODE_NAME
-        // this.workspace = env.WORKSPACE
-    }
-    // GatheringFacts setRepositoryUrl(String repositoryUrl){
-    //     this.repositoryUrl = repositoryUrl
+    // GatheringFacts(){
+    //     // this.nodeName  = env.NODE_NAME
+    //     // this.workspace = env.WORKSPACE
+    // }
+    // // GatheringFacts setRepositoryUrl(String repositoryUrl){
+    // //     this.repositoryUrl = repositoryUrl
     // }
 
     // GatheringFacts setBranchFromForm(String branchName){
