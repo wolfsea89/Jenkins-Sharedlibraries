@@ -4,5 +4,5 @@ interface IGatheringFacts extends Serializable {
     
     GatheringFacts setBranchName(String branchName);
     String getBranchName();
-    String getBranchNamePrefix();
+    String getPrefix();
 }
