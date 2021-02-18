@@ -1,3 +1,5 @@
+package devops.ci
+
 class GatheringFacts extends Abstractcommand {
 
     List<Command> list = new ArrayList<Command>()
