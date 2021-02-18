@@ -26,23 +26,37 @@ class GatheringFacts implements IGatheringFacts {
     private void setBranchPrefix(String branchName){
         
         String branchNamePrefixx
-        
-        if (branchName ==~ /(.*\/feature)|(feature)\/.*$/) {
-            branchNamePrefixx = 'feature'
-        } else if (branchName ==~ /(.*\/epicfeature)|(epicfeature)\/.*$/) {
-            branchNamePrefixx = 'epicfeature'
-        } else if (branchName ==~ /(.*\/develop)|(develop)$/) {
-            branchNamePrefixx = 'develop'
-        } else if (branchName ==~ /(.*\/release|release)(\/([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.0)|)$/) {
-            branchNamePrefixx = 'release'
-        } else if (branchName ==~ /(.*\/hotfix|hotfix)(\/([0-9]+\.[0-9]+\.[0-9]+)|)$/) {
-            branchNamePrefixx = 'hotfix'
-        } else if (branchName ==~ /(.*\/master)|(master)$/) {
-            branchNamePrefixx = 'master'
-        } else {
-            throw new SecurityException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
+
+        switch(branchName) {
+            case ~/(.*\/feature)|(feature)\/.*$/:
+                branchNamePrefixx = 'feature'
+                break;
+            case ~ /(.*\/epicfeature)|(epicfeature)\/.*$/:
+                branchNamePrefixx = 'epicfeature'
+                break;
+            case ~ /(.*\/develop)|(develop)$/:
+                branchNamePrefixx = 'develop'
+                break;
+            default:
+                throw new SecurityException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
         }
         this.branchNamePrefix = branchNamePrefix
+        // if (branchName ==~) {
+            
+        // } else if (branchName ==~ /(.*\/epicfeature)|(epicfeature)\/.*$/) {
+        //     branchNamePrefixx = 'epicfeature'
+        // } else if (branchName ==~ /(.*\/develop)|(develop)$/) {
+        //     branchNamePrefixx = 'develop'
+        // } else if (branchName ==~ /(.*\/release|release)(\/([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.0)|)$/) {
+        //     branchNamePrefixx = 'release'
+        // } else if (branchName ==~ /(.*\/hotfix|hotfix)(\/([0-9]+\.[0-9]+\.[0-9]+)|)$/) {
+        //     branchNamePrefixx = 'hotfix'
+        // } else if (branchName ==~ /(.*\/master)|(master)$/) {
+        //     branchNamePrefixx = 'master'
+        // } else {
+        //     throw new SecurityException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
+        // }
+        
     }
 
 
