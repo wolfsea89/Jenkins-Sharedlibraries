@@ -112,7 +112,7 @@ class GatheringFacts {
             // } else if() {
             } esle {
                 def substring = this.branchName.split('/')
-                version = (substring.last() ==~ /(.*)([0-9]+\.[0-9]+)$/) ? "${substringlast()}.0" : null
+                version = (substring.last() ==~ /(.*)([0-9]+\.[0-9]+)$/) ? "${substring.last()}.0" : null
             }
                 // def match = (this.branchName =~ /[0-9]+\.[0-9]+\.[0-9]+$/)
                 // version = match.find() ? match.group(1) : null
