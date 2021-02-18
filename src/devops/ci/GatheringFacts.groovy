@@ -7,7 +7,9 @@ class GatheringFacts implements IGatheringFacts {
     private String branchName
     private String branchNamePrefix
     
-    GatheringFacts(){ }
+    GatheringFacts(){
+        super.init()
+    }
 
     public GatheringFacts setBranchName(String branchName){
         this.branchName = branchName
