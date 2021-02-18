@@ -32,14 +32,14 @@ class GatheringFacts {
         }
         
     }
-
+    @NonCPS
     public Boolean isFeature(){
         if (this.branchName ==~ /(.*\/feature)|(feature)\/.*$/){
             this.branchNamePrefix = 'feature'
             return true
         }
     }
-
+    @NonCPS
     public Boolean isEpicFeature(){
         if (this.branchName ==~ /(.*\/epicfeature)|(epicfeature)\/.*$/){
             this.branchNamePrefix = 'epicfeature'
