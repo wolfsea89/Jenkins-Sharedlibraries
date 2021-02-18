@@ -56,4 +56,4 @@ class GatheringFacts {
     // void setArifactType(String branchNamePrefix){
     //     this.artifactType = (branchNamePrefix ==~/^release|hotfix$/) ? 'release' : 'snapshot'
     // }
-}   
+// }   
