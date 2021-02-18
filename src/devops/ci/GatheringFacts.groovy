@@ -1,6 +1,7 @@
 package devops.ci
 
 import groovy.json.JsonSlurper
+import java.io.File
 
 class GatheringFacts {
 
