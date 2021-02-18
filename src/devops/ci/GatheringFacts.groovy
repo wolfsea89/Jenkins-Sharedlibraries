@@ -25,7 +25,7 @@ class GatheringFacts implements Serializable  {
         this.repositoryUrl = repositoryUrl
     }
 
-    GatheringFacts setBranchName(String branchName){
+    GatheringFacts setBranchFromForm(String branchName){
         this.branchName = branchName
         this.setBranchPrefix(branchName)
         this.setArifactType(this.branchNamePrefix)
