@@ -24,7 +24,6 @@ class GatheringFacts implements IGatheringFacts {
     }
 
     private void setBranchPrefix(String branchName){
-        pipeline.echo"WSK-1"
 
         if (branchName ==~ /(.*\/feature)|(feature)\/.*$/) {
             this.branchNamePrefix = 'feature'
