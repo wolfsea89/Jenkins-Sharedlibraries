@@ -2,6 +2,10 @@ package devops.ci
 
 import groovy.json.JsonSlurper
 import java.io.File
+import jenkins.*
+import jenkins.model.*
+import hudson.*
+import hudson.model.*  
 
 class GatheringFacts {
 
