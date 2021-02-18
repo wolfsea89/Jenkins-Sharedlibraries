@@ -11,7 +11,7 @@ class GatheringFacts implements IGatheringFacts {
 
     public GatheringFacts setBranchName(String branchName){
         this.branchName = branchName
-        this.setBranchPrefix(branchName)
+        this.setBranchPrefix()
         return this
     }
 
@@ -23,11 +23,11 @@ class GatheringFacts implements IGatheringFacts {
         return this.branchName
     }
 
-    private def setBranchPrefix(String branchName){
+    private def setBranchPrefix(){
         
         String branchNamePrefixx
 
-        switch(branchName) {
+        switch(this.branchName) {
             case ~/(.*\/feature)|(feature)\/.*$/:
                 branchNamePrefixx = 'feature'
                 break;
