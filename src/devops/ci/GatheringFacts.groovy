@@ -7,7 +7,7 @@ class GatheringFacts implements IGatheringFacts {
     // }
 
     @Override
-    void setParams(Collections params){
+    void setParams(Array params){
         println(params)
     }
 
