@@ -130,4 +130,8 @@ class GatheringFacts {
         }
         this.version = version
     }
+
+    public void readApplicationConfigurationFiles(){
+        this applicationConfiguration = readJSON file: this.applicationJsonFile
+    }
 }
