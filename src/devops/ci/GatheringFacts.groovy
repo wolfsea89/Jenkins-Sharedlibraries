@@ -13,9 +13,9 @@ class GatheringFacts extends Serializable  {
     String artifactType
     String nodeName
     String workspace
-        'jobName':        env.JOB_BASE_NAME,
-        'jobBuildNumber': env.BUILD_NUMBER,
-        'artifactType':   artifactType,
+        // 'jobName':        env.JOB_BASE_NAME,
+        // 'jobBuildNumber': env.BUILD_NUMBER,
+        // 'artifactType':   artifactType,
     
     GatheringFacts(){
         this.nodeName  = env.NODE_NAME
