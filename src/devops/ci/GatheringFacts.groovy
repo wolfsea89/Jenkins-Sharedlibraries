@@ -138,4 +138,8 @@ class GatheringFacts {
         }
         this.version = version
     }
+
+    public void setApplicationConfiguration(Object applicationConfiguration){
+        this.applicationConfiguration = applicationConfiguration
+    }
 }
