@@ -17,7 +17,6 @@ class GatheringFacts implements IGatheringFacts {
 
     public GatheringFacts setBranchName(String branchName){
         this.branchName = branchName
-        steps.echo("WSK")
         this.setBranchPrefix(branchName)
         return this
     }
@@ -45,8 +44,7 @@ class GatheringFacts implements IGatheringFacts {
         } else if (branchName ==~ /(.*\/master)|(master)$/) {
             this.branchNamePrefix = 'master'
         } else {
-            log.error('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
-            throw new MissingFormatArgumentException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
+            steps.error('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
         }
     }
 
