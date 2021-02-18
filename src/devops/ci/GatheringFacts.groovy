@@ -13,6 +13,7 @@ class GatheringFacts {
     String artifactType 
     String version
     String versionWithBuildNumber
+    String jenkinsScriptDirectory
 
     GatheringFacts(def params, def env){
         // Params
@@ -29,6 +30,7 @@ class GatheringFacts {
         this.jobBuildNumber = env.BUILD_NUMBER
         this.nodeName = env.NODE_NAME
         this.workspace = env.WORKSPACE
+        this.jenkinsScriptDirectory = env.JENKINSFILE_SCRIPTS_DIR
 
         // Set variables
         isFeature()
