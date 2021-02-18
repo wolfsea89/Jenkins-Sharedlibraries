@@ -18,8 +18,8 @@ class GatheringFacts implements Serializable  {
         // 'artifactType':   artifactType,
     
     GatheringFacts(){
-        this.nodeName  = env.NODE_NAME
-        this.workspace = env.WORKSPACE
+        // this.nodeName  = env.NODE_NAME
+        // this.workspace = env.WORKSPACE
     }
     GatheringFacts setRepositoryUrl(String repositoryUrl){
         this.repositoryUrl = repositoryUrl
