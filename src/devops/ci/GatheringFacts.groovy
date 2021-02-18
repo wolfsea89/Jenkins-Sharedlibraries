@@ -23,7 +23,7 @@ class GatheringFacts implements IGatheringFacts {
         return this.branchName
     }
 
-    private def setBranchPrefix(){
+    public setBranchPrefix(){
 
         String branchNamePrefixx
 
