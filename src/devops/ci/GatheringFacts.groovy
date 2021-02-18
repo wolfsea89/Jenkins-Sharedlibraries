@@ -39,7 +39,7 @@ class GatheringFacts implements IGatheringFacts {
         } else if (branchName ==~ /(.*\/master)|(master)$/) {
             this.branchNamePrefix = 'master'
         } else {
-            error('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
+            throw new MissingFormatArgumentException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
         }
     }
 
