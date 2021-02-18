@@ -114,7 +114,7 @@ class GatheringFacts {
                 // def match = (this.branchName =~ /[0-9]+\.[0-9]+\.[0-9]+$/)
                 // version = match.find() ? match.group(1) : null
 
-                match = (this.branchName =~ /[0-9]+\.[0-9]+$/)
+                match = (this.branchName =~ /(.*)([0-9]+\.[0-9]+)$/)
                 version = match[0..-1]
 
             // }
