@@ -134,6 +134,7 @@ class GatheringFacts {
     }
 
     public void readApplicationConfigurationFiles(){
+        def jsonSlurper = new JsonSlurper()
         this.applicationConfiguration = jsonSlurper.parse(new File(this.applicationJsonFile))
         // this.applicationConfiguration = readJSON file: this.applicationJsonFile
     }
