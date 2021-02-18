@@ -33,7 +33,7 @@ class GatheringFacts {
         isFeature()
         isEpicFeature()
         isDevelop()
-        isReleaase()
+        isRelease()
         isHotfix()
         isMaster()
         setArifactType()
@@ -71,7 +71,7 @@ class GatheringFacts {
     }
 
     @NonCPS
-    public Boolean isReleaase(){
+    public Boolean isRelease(){
         if (this.branchName ==~ /(.*\/release|release)(\/([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.0)|)$/){
             this.branchNamePrefix = 'release'
             return true
