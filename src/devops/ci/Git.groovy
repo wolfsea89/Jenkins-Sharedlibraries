@@ -16,7 +16,8 @@ class Git implements Serializable {
       ],
       userRemoteConfigs: [
         [
-          url: repositoryUrl
+          url: repositoryUrl,
+          credentialsId: scm.credentialsId
         ]
       ]
     ])
