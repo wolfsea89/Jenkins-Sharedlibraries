@@ -99,6 +99,7 @@ class GatheringFacts {
         this.artifactType = (this.branchNamePrefix ==~/^release|hotfix$/) ? 'release' : 'snapshot'
     }
 
+    @NonCPS
     public String semanticVersion(){
 
         def now = new Date()
