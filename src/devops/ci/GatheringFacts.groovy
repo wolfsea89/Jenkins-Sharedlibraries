@@ -37,7 +37,7 @@ class GatheringFacts {
         this.workspace = env.WORKSPACE
         this.jenkinsScriptDirectory = env.JENKINSFILE_SCRIPTS_DIR
         this.gitCredentialId = env.GIT_CREDS_ID
-        this.applicationJsonFile = env.APP_CONFIGURATION_JSON_PATH
+        this.applicationJsonFile = nv.WORKSPACE + '/' + env.APP_CONFIGURATION_JSON_PATH
 
         // Set variables
         isFeature()
@@ -135,7 +135,7 @@ class GatheringFacts {
     }
 
     public void readApplicationConfigurationFiles(){
-        def file =  new File(this.applicationJsonFile)
+        def file = new File(this.applicationJsonFile)
         def jsonSlurper = new JsonSlurper()
         this.applicationConfiguration = jsonSlurper.parse(file)
         // this.applicationConfiguration = readJSON file: this.applicationJsonFile
