@@ -110,7 +110,7 @@ class GatheringFacts {
             if(this.manualVersion){
                 version = "${manualVersion}"
             // } else if() {
-            } esle {
+            } else {
                 def substring = this.branchName.split('/')
                 version = (substring.last() ==~ /(.*)([0-9]+\.[0-9]+)$/) ? "${substring.last()}.0" : null
             }
