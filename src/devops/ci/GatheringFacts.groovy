@@ -2,12 +2,14 @@ package devops.ci
 
 class GatheringFacts {
 
-    private String branchName
-
-    GatheringFacts(){ }
-
-    public setParams(def params){
-        
+    GatheringFacts(def params, def env){
+        this.branchName = params.branch
+        this.repositoryUrl = params.repositoryUrl
+        this.manualVersion = params.manualVersion
+        this.jobName = env.JOB_BASE_NAME
+        this.jobBuildNumber = env.BUILD_NUMBER
+        this.nodeName = env.NODE_NAME
+        this.workspace = env.WORKSPACE
     }
 
 }
