@@ -27,7 +27,7 @@ class GatheringFacts implements Serializable  {
 
     GatheringFacts setBranchName(String branchName){
         this.branchName = branchName
-        this.setPrefix(branchName)
+        this.setBranchPrefix(branchName)
         this.setArtefactType(this.branchNamePrefix)
         return this
     }
