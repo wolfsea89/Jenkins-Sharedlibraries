@@ -110,8 +110,12 @@ class GatheringFacts {
             if(this.manualVersion){
                 version = "${manualVersion}"
             } else {
-                version = (this.branchName =~ /[0-9]+\.[0-9]+\.[0-9]+$/)
-                version = (this.branchName =~ /[0-9]+\.[0-9]+$/)
+                def match = (this.branchName =~ /[0-9]+\.[0-9]+\.[0-9]+$/)
+                version = match.find() ? match.group(1) : null
+
+                match = (this.branchName =~ /[0-9]+\.[0-9]+$/)
+                version = match.find() ? match.group(1) : null
+
             }
         }
         this.version = version
