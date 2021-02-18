@@ -7,7 +7,7 @@ class GatheringFacts implements IGatheringFacts {
     // }
 
     @Override
-    void setParams(LinkedHashMap params){
+    void setParams(Collections params){
         println(params)
     }
 
