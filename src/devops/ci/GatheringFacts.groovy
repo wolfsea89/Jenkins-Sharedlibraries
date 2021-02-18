@@ -12,6 +12,7 @@ class GatheringFacts {
     String branchNamePrefix
     String artifactType 
     String version
+    String versionWithBuildNumber
 
     GatheringFacts(def params, def env){
         // Params
@@ -38,6 +39,7 @@ class GatheringFacts {
         isMaster()
         setArifactType()
         semanticVersion()
+        this.versionWithBuildNumber = this.version + "." + this.jobBuildNumber
 
         if (this.branchNamePrefix == null) {
             throw new IllegalArgumentException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
