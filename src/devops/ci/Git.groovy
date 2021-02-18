@@ -25,7 +25,10 @@ class Git implements Serializable {
 
   def checkoutJenkinsSripts(String tagetDirectory){
     this.pipeline.checkout([
-      $class: 'GitSCM'
+      $class: 'GitSCM',
+      branches: this.pipeline.scm.branches,
+      doGenerateSubmoduleConfigurations: this.pipeline.scm.doGenerateSubmoduleConfigurations,
+      userRemoteConfigs: this.pipeline.scm.userRemoteConfigs,
       extensions: [
         [
           $class: 'RelativeTargetDirectory', 
