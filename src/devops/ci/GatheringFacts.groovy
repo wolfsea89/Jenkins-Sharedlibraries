@@ -135,7 +135,7 @@ class GatheringFacts {
     }
 
     public void readApplicationConfigurationFiles(){
-        def file =  new File("${this.applicationJsonFile}")
+        def file =  new java.io.File("${this.applicationJsonFile}")
         def jsonSlurper = new JsonSlurper()
         this.applicationConfiguration = jsonSlurper.parse(new File(file))
         // this.applicationConfiguration = readJSON file: this.applicationJsonFile
