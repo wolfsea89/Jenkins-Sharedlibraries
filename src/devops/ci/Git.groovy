@@ -9,14 +9,13 @@ class Git {
     this.pipeline = pipeline
   }
 
-  def checkoutApplicationRepository(String branchName, String repositoryUrl, String gitCredentialId){
+  def checkoutApplicationRepository(String branchName, String repositoryUrl){
     checkout([
       $class: 'GitSCM',
       branches: branchName,
       userRemoteConfigs: [
         [
-          url: repositoryUrl,
-          credentialsId: gitCredentialId
+          url: repositoryUrl
         ]
       ]
     ])
