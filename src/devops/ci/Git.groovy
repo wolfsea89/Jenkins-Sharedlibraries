@@ -11,7 +11,7 @@ class Git implements Serializable {
   def checkoutApplicationRepository(String branchName, String repositoryUrl){
     this.pipeline.checkout([
       $class: 'GitSCM',
-      branches: branchName,
+      branches: [[ branchName ]],
       userRemoteConfigs: [
         [
           url: repositoryUrl
