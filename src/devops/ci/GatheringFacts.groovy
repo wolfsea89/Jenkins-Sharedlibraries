@@ -113,14 +113,15 @@ class GatheringFacts {
                 version = "${manualVersion}"
             } else {
                 def substring = this.branchName.split('/')
-                version = (substring.last() ==~ /[0-9]+\.[0-9]+$/) ? "${substring.last()}.0" : null
-                version = (substring.last() ==~ /[0-9]+\.[0-9]+\.[0-9]+$/) ? "${substring.last()}" : null
+                if(substring.last() ==~ /[0-9]+\.[0-9]+$/){
+                    version = "${substring.last()}.0"
+                } else if(substring.last() ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
+                    version = "${substring.last()}"
+                } else {
+                    throw new IOException('ERROR: I can\'t set the version')
+                }
             }
         }
-        if(version){
-            this.version = version
-        } else {
-            throw new IOException('ERROR: I can\'t set the version')
-        }
+        this.version = version
     }
 }
