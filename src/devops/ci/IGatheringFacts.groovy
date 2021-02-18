@@ -1,6 +1,7 @@
 package devops.ci
 
 interface IGatheringFacts extends Serializable {
-    void setParams(def params);
-    def getParams();
+    GatheringFacts setParams(def params);
+    String getBranchName();
+    String getBranchNamePrefix();
 }
