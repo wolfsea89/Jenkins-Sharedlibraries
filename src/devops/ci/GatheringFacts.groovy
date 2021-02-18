@@ -2,6 +2,14 @@ package devops.ci
 
 class GatheringFacts {
 
+    String branchName
+    String repositoryUrl
+    String manualVersion
+    String jobName
+    String jobBuildNumber
+    String nodeName
+    String workspace
+
     GatheringFacts(def params, def env){
         this.branchName = params.branch
         this.repositoryUrl = params.repositoryUrl
