@@ -1,6 +1,6 @@
 package devops.ci
 
-class GatheringFacts extends AbstracCommand implements Cloneable {
+class GatheringFacts extends AbstractCommand implements Cloneable {
 
     List<Command> list = new ArrayList<Command>()
 
