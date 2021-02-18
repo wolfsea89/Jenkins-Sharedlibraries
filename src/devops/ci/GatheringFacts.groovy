@@ -133,7 +133,7 @@ class GatheringFacts {
         this.version = version
     }
 
-    public void covertApplicationJsonToObject(String jsonString){
-        this.applicationConfiguration = new JsonSlurper().parseText(jsonString)
+    public void readApplicationConfigurationFiles(String path){
+        this.applicationConfiguration = new JsonSlurper().parse(path)
     }
 }
