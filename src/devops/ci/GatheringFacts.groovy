@@ -14,6 +14,7 @@ class GatheringFacts implements IGatheringFacts {
 
     public GatheringFacts setBranchName(String branchName){
         this.branchName = branchName
+        echo "WSK"
         this.setBranchPrefix(branchName)
         return this
     }
