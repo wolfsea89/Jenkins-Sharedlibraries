@@ -6,12 +6,8 @@ class GatheringFacts implements IGatheringFacts {
 
     private String branchName
     private String branchNamePrefix
-
-    def pipeline
     
-    GatheringFacts(pipeline){
-        this.pipeline = pipeline
-    }
+    GatheringFacts(){ }
 
     public GatheringFacts setBranchName(String branchName){
         this.branchName = branchName
@@ -44,7 +40,6 @@ class GatheringFacts implements IGatheringFacts {
             this.branchNamePrefix = 'master'
         } else {
             throw new SecurityException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
-            pipeline.error('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
         }
     }
 
