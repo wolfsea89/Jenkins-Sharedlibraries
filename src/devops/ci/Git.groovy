@@ -1,6 +1,6 @@
 package devops.ci
 
-class Git implements Serialized {
+class Git implements Serializable {
 
   private pipeline
 
