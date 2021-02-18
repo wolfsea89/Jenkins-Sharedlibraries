@@ -105,7 +105,7 @@ class GatheringFacts {
     public String semanticVersion(){
 
         def now = new Date()
-        version = "${now.format('yyyy.M.d', TimeZone.getTimeZone('UTC'))}"
+        def version = "${now.format('yyyy.M.d', TimeZone.getTimeZone('UTC'))}"
 
         if (this.branchNamePrefix ==~ /release|hotfix|master/) {
             
