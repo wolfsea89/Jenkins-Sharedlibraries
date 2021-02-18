@@ -24,22 +24,25 @@ class GatheringFacts implements IGatheringFacts {
     }
 
     private void setBranchPrefix(String branchName){
-
+        
+        String branchNamePrefixx
+        
         if (branchName ==~ /(.*\/feature)|(feature)\/.*$/) {
-            this.branchNamePrefix = 'feature'
+            branchNamePrefixx = 'feature'
         } else if (branchName ==~ /(.*\/epicfeature)|(epicfeature)\/.*$/) {
-            this.branchNamePrefix = 'epicfeature'
+            branchNamePrefixx = 'epicfeature'
         } else if (branchName ==~ /(.*\/develop)|(develop)$/) {
-            this.branchNamePrefix = 'develop'
+            branchNamePrefixx = 'develop'
         } else if (branchName ==~ /(.*\/release|release)(\/([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.0)|)$/) {
-            this.branchNamePrefix = 'release'
+            branchNamePrefixx = 'release'
         } else if (branchName ==~ /(.*\/hotfix|hotfix)(\/([0-9]+\.[0-9]+\.[0-9]+)|)$/) {
-            this.branchNamePrefix = 'hotfix'
+            branchNamePrefixx = 'hotfix'
         } else if (branchName ==~ /(.*\/master)|(master)$/) {
-            this.branchNamePrefix = 'master'
+            branchNamePrefixx = 'master'
         } else {
             throw new SecurityException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
         }
+        this.branchNamePrefix = branchNamePrefix
     }
 
 
