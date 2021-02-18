@@ -1,10 +1,13 @@
 package devops.ci
 
-class GatheringFacts implements Serializable  {
-
-    static final defaultBranchPrefix = 'feature'
+class GatheringFacts {
 
     private String branchName
+
+    GatheringFacts(){ }
+
+}
+
     private String branchNamePrefix
     private String Version
     private String repositoryUrl
