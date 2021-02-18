@@ -1,11 +1,11 @@
 package devops.ci
 
-interface IGatheringFacts extends Serializable {
+interface IGatheringFacts {
     void setParams(Object params)
 
 }
 
-class GatheringFacts implements IGatheringFacts {
+class GatheringFacts implements IGatheringFacts extends Serializable {
 
     GatheringFacts(){
 
