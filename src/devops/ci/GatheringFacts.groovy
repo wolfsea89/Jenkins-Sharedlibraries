@@ -1,5 +1,7 @@
 package devops.ci
 
+import groovy.json.JsonSlurper
+
 class GatheringFacts {
 
     String branchName
@@ -132,6 +134,7 @@ class GatheringFacts {
     }
 
     public void readApplicationConfigurationFiles(){
-        this.applicationConfiguration = readJSON file: this.applicationJsonFile
+        this.applicationConfiguration = jsonSlurper.parse(new File(this.applicationJsonFile))
+        // this.applicationConfiguration = readJSON file: this.applicationJsonFile
     }
 }
