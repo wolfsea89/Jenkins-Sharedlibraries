@@ -2,8 +2,8 @@ package devops.ci.models
 
 class Parameters {
 
-  String branchName
-  String repositoryUrl
-  String manualVersion
+  static String branchName
+  static String repositoryUrl
+  static String manualVersion
 
 }
