@@ -24,43 +24,46 @@ class GatheringFacts implements Serializable {
     String gitCredentialId
     String applicationJsonFile
     Object applicationConfiguration
+    def test
 
-    GatheringFacts(def params, def env){
+    GatheringFacts(){
         // Params
-        this.branchName = params.branch
-        this.repositoryUrl = params.repositoryUrl
-        if(params.manualVersion == "" || params.manualVersion ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
-            this.manualVersion = params.manualVersion
-        } else {
-            throw new IllegalArgumentException('ERROR: Invalid set manual version')
-        }
+        // this.branchName = params.branch
+        // this.repositoryUrl = params.repositoryUrl
+        // if(params.manualVersion == "" || params.manualVersion ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
+        //     this.manualVersion = params.manualVersion
+        // } else {
+        //     throw new IllegalArgumentException('ERROR: Invalid set manual version')
+        // }
 
-        // Env
-        this.jobName = env.JOB_BASE_NAME
-        this.jobBuildNumber = env.BUILD_NUMBER
-        this.nodeName = env.NODE_NAME
-        this.workspace = env.WORKSPACE
-        this.jenkinsScriptDirectory = env.JENKINSFILE_SCRIPTS_DIR
-        this.gitCredentialId = env.GIT_CREDS_ID
-        this.applicationJsonFile = env.APP_CONFIGURATION_JSON_PATH
+        // // Env
+        // this.jobName = env.JOB_BASE_NAME
+        // this.jobBuildNumber = env.BUILD_NUMBER
+        // this.nodeName = env.NODE_NAME
+        // this.workspace = env.WORKSPACE
+        // this.jenkinsScriptDirectory = env.JENKINSFILE_SCRIPTS_DIR
+        // this.gitCredentialId = env.GIT_CREDS_ID
+        // this.applicationJsonFile = env.APP_CONFIGURATION_JSON_PATH
 
-        // Set variables
-        isFeature()
-        isEpicFeature()
-        isDevelop()
-        isRelease()
-        isHotfix()
-        isMaster()
-        setArifactType()
-        semanticVersion()
-        this.versionWithBuildNumber = this.version + "." + this.jobBuildNumber
+        // // Set variables
+        // isFeature()
+        // isEpicFeature()
+        // isDevelop()
+        // isRelease()
+        // isHotfix()
+        // isMaster()
+        // setArifactType()
+        // semanticVersion()
+        // this.versionWithBuildNumber = this.version + "." + this.jobBuildNumber
 
-        if (this.branchNamePrefix == null) {
-            throw new IllegalArgumentException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
-        }
-
-        
+        // if (this.branchNamePrefix == null) {
+        //     throw new IllegalArgumentException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
+        // }
     }
+
+    public GatheringFacts setParametersFromForm(def Object)
+        this.test = Object.getClass()
+        return this
 
     @NonCPS
     public Boolean isFeature(){
