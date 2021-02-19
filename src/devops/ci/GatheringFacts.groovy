@@ -3,6 +3,7 @@ package devops.ci
 class GatheringFacts implements Serializable {
 
     String branchName
+    String branchNamePrefix
     String repositoryUrl
     String manualVersion
     String jobName
