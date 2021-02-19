@@ -17,21 +17,16 @@ class GatheringFacts implements Serializable {
     public String versionWithBuildNumber
     public String jenkinsScriptDirectory
     public Object applicationConfiguration
+    public String artifactType
     
     // String nodeName
     // String artifactType 
-    
-    // String versionWithBuildNumber
 
     GatheringFacts(){
 
         // setArifactType()
         // semanticVersion()
         // this.versionWithBuildNumber = this.version + "." + this.jobBuildNumber
-
-        // if (this.branchNamePrefix == null) {
-        //     throw new IllegalArgumentException('ERROR: Branch name not compatible with gitflow. Expects value (feature/*, epicfeature/*, develop, release, release/X.Y, release/X.Y.0, hotfix, hotfix/X.Y.Z, master)')
-        // }
     }
 
     public GatheringFacts setParametersFromForm (
@@ -40,6 +35,14 @@ class GatheringFacts implements Serializable {
         String manualVersion
     ){
         this.branchName = branchName
+        this.repositoryUrl = repositoryUrl
+        if(manualVersion == "" || manualVersion ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
+            this.manualVersion = manualVersion
+        } else {
+            throw new IllegalArgumentException('ERROR: Invalid set manual version')
+        }
+
+        // Set branchNamePrefix
         String branchNamePrefix = new CheckBranch(this.branchName).branchNamePrefix
         if(branchNamePrefix){
             this.branchNamePrefix = branchNamePrefix
@@ -47,15 +50,12 @@ class GatheringFacts implements Serializable {
             throw new IllegalArgumentException('ERROR: Branch invalid with GitFlow')
         }
 
-        this.repositoryUrl = repositoryUrl
-
-        if(manualVersion == "" || manualVersion ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
-            this.manualVersion = manualVersion
-        } else {
-            throw new IllegalArgumentException('ERROR: Invalid set manual version')
-        }
-
+        // Set version
         this.version = new Version(this.branchNamePrefix, this.branchName, this.manualVersion).version
+
+        // Set artifact type
+        this.artifactType = (this.branchNamePrefix  ==~ /release|hotfix/) ? "release" : "snapshot"
+
         return this
     }
 
@@ -84,34 +84,4 @@ class GatheringFacts implements Serializable {
     public GatheringFacts createVersionWithBuildNumber(){
         this.versionWithBuildNumber = this.version + '.' + this.jobBuildNumber
     }
-
-    
-
-    // @NonCPS
-    // public String semanticVersion(){
-
-    //     def now = new Date()
-    //     def version = "${now.format('yyyy.M.d', TimeZone.getTimeZone('UTC'))}"
-
-    //     if (this.branchNamePrefix ==~ /release|hotfix|master/) {
-            
-    //         if(this.manualVersion){
-    //             version = "${manualVersion}"
-    //         } else {
-    //             def substring = this.branchName.split('/')
-    //             if(substring.last() ==~ /[0-9]+\.[0-9]+$/){
-    //                 version = "${substring.last()}.0"
-    //             } else if(substring.last() ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
-    //                 version = "${substring.last()}"
-    //             } else {
-    //                 throw new IOException('ERROR: I can\'t set the version')
-    //             }
-    //         }
-    //     }
-    //     this.version = version
-    // }
-
-    // public void setApplicationConfiguration(Object applicationConfiguration){
-    //     this.applicationConfiguration = applicationConfiguration
-    // }
 }
