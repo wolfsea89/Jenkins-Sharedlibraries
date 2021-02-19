@@ -81,7 +81,7 @@ class GatheringFacts implements Serializable {
         return this
     }
 
-    public GatheringFacts setVersionWithBuildNumber(){
+    public GatheringFacts createVersionWithBuildNumber(){
         this.versionWithBuildNumber = this.version + '.' this.jobBuildNumber
     }
 
