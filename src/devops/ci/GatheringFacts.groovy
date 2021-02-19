@@ -14,6 +14,7 @@ class GatheringFacts implements Serializable {
     public String workspace
     public String gitCredentialId
     public String applicationJsonFile
+    public String versionWithBuildNumber
     public String jenkinsScriptDirectory
     public Object applicationConfiguration
     
@@ -77,6 +78,11 @@ class GatheringFacts implements Serializable {
 
     public GatheringFacts setApplicationConfiguration(Object json){
         this.applicationConfiguration = json
+        return this
+    }
+
+    public GatheringFacts setVersionWithBuildNumber(){
+        this.versionWithBuildNumber = this.version + '.' this.jobBuildNumber
     }
 
     
