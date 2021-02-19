@@ -70,7 +70,7 @@ class GatheringFacts implements Serializable {
     }
 
     public GatheringFacts setApplicationConfiguration(Object json){
-        this.applicationConfiguration = applicationConfiguration.getClass()
+        this.applicationConfiguration = json
     }
 
     
