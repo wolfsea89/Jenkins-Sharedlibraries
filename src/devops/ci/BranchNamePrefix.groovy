@@ -2,9 +2,11 @@ package devops.ci
 
 class BranchNamePrefix implements Serializable {
 
-  String branchNamePrefix
+  public String branchNamePrefix
+  private String branchName
 
-  BranchNamePrefix (String branchName){
+  BranchNamePrefix(String branchName){
+    this.branchName = branchNamePrefix
     isFeature()
     isEpicFeature()
     isDevelop()
