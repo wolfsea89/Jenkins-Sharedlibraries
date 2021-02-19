@@ -26,7 +26,7 @@ class GatheringFacts implements Serializable {
     String gitCredentialId
     String applicationJsonFile
     Object applicationConfiguration
-    Parameters test
+    String test
 
     GatheringFacts(){
         // Params
