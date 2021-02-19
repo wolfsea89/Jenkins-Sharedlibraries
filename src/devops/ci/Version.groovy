@@ -4,7 +4,7 @@ class Version implements Serializable {
 
   String version
 
-  Version(String branchNamePrefix, String branchName, String manualVersion){
+  Version(String branchNamePrefix, String branchName, String manualVersion = ""){
 
     def now = new Date()
     def version = "${now.format('yyyy.M.d', TimeZone.getTimeZone('UTC'))}"
