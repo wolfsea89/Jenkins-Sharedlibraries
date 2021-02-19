@@ -14,18 +14,17 @@ class GatheringFacts implements Serializable {
     String branchName
     String repositoryUrl
     String manualVersion
-
-    // String jobName
-    // String jobBuildNumber
+    String jobName
+    String jobBuildNumber
+    String workspace
+    String gitCredentialId
+    String applicationJsonFile
     // String nodeName
-    // String workspace
     // String branchNamePrefix
     // String artifactType 
     // String version
     // String versionWithBuildNumber
     // String jenkinsScriptDirectory
-    // String gitCredentialId
-    // String applicationJsonFile
     // Object applicationConfiguration
 
     GatheringFacts(){
