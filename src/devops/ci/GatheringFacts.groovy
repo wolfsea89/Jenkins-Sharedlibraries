@@ -29,14 +29,6 @@ class GatheringFacts implements Serializable {
     // Object applicationConfiguration
 
     GatheringFacts(){
-        // Params
-        // this.branchName = params.branch
-        // this.repositoryUrl = params.repositoryUrl
-        // if(params.manualVersion == "" || params.manualVersion ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
-        //     this.manualVersion = params.manualVersion
-        // } else {
-        //     throw new IllegalArgumentException('ERROR: Invalid set manual version')
-        // }
 
         // // Env
         // this.jobName = env.JOB_BASE_NAME
@@ -81,9 +73,19 @@ class GatheringFacts implements Serializable {
     }
 
     public GatheringFacts setEnvironments(
-
+        String jobName,
+        String jobBuildNumber,
+        String workspace,
+        String jenkinsScriptDirectory,
+        String gitCredentialId,
+        String applicationJsonFile
     ){
-
+        this.jobName = jobName
+        this.jobBuildNumber = jobBuildNumber
+        this.workspace = workspace
+        this.jenkinsScriptDirectory = jenkinsScriptDirectory
+        this.gitCredentialId = gitCredentialId
+        this.applicationJsonFile = applicationJsonFile
         return this
     }
 
