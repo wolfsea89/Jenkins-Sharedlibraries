@@ -45,9 +45,9 @@ class GatheringFacts implements Serializable {
         } else {
             throw new IllegalArgumentException('ERROR: Invalid set manual version')
         }
-        def a = new BranchNamePrefix(this.branchName).branchNamePrefix
-        print a
-        this.branchNamePrefix = new BranchNamePrefix(this.branchName).branchNamePrefix
+        // def a = new BranchNamePrefix(this.branchName).branchNamePrefix
+        // print a
+        // this.branchNamePrefix = new BranchNamePrefix(this.branchName).branchNamePrefix
 
         return this
     }
