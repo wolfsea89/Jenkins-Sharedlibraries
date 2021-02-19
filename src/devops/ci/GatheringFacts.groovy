@@ -20,6 +20,7 @@ class GatheringFacts implements Serializable {
     String gitCredentialId
     String applicationJsonFile
     String jenkinsScriptDirectory
+    def applicationConfiguration
     
     // String nodeName
     // String branchNamePrefix
@@ -29,15 +30,6 @@ class GatheringFacts implements Serializable {
     // Object applicationConfiguration
 
     GatheringFacts(){
-
-        // // Env
-        // this.jobName = env.JOB_BASE_NAME
-        // this.jobBuildNumber = env.BUILD_NUMBER
-        // this.nodeName = env.NODE_NAME
-        // this.workspace = env.WORKSPACE
-        // this.jenkinsScriptDirectory = env.JENKINSFILE_SCRIPTS_DIR
-        // this.gitCredentialId = env.GIT_CREDS_ID
-        // this.applicationJsonFile = env.APP_CONFIGURATION_JSON_PATH
 
         // // Set variables
         // isFeature()
@@ -87,6 +79,10 @@ class GatheringFacts implements Serializable {
         this.gitCredentialId = gitCredentialId
         this.applicationJsonFile = applicationJsonFile
         return this
+    }
+
+    public GatheringFacts setApplicationConfiguration(String jsonText){
+        this.applicationConfiguration = applicationConfiguration.getClass()
     }
 
     // @NonCPS
