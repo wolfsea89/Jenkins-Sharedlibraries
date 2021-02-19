@@ -81,7 +81,7 @@ class GatheringFacts implements Serializable {
         return this
     }
 
-    public GatheringFacts setApplicationConfiguration(String jsonText){
+    public GatheringFacts setApplicationConfiguration(JSONObject jsonText){
         this.applicationConfiguration = applicationConfiguration.getClass()
     }
 
