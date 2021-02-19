@@ -14,19 +14,19 @@ class GatheringFacts implements Serializable {
     String branchName
     String repositoryUrl
     String manualVersion
-    String jobName
-    String jobBuildNumber
-    String nodeName
-    String workspace
-    String branchNamePrefix
-    String artifactType 
-    String version
-    String versionWithBuildNumber
-    String jenkinsScriptDirectory
-    String gitCredentialId
-    String applicationJsonFile
-    Object applicationConfiguration
-    String test
+
+    // String jobName
+    // String jobBuildNumber
+    // String nodeName
+    // String workspace
+    // String branchNamePrefix
+    // String artifactType 
+    // String version
+    // String versionWithBuildNumber
+    // String jenkinsScriptDirectory
+    // String gitCredentialId
+    // String applicationJsonFile
+    // Object applicationConfiguration
 
     GatheringFacts(){
         // Params
@@ -63,8 +63,10 @@ class GatheringFacts implements Serializable {
         // }
     }
 
-    public GatheringFacts setParametersFromForm(def Parameters){
-        this.test = Parameters.branch
+    public GatheringFacts setParametersFromForm(Parameters parameters){
+        this.branchName = parameters.branchName
+        this.repositoryUrl = parameters.repositoryUrl
+        this.manualVersion = parameters.manualVersion
         return this
     }
 
