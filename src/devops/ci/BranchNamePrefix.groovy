@@ -3,7 +3,7 @@ package devops.ci
 class BranchNamePrefix implements Serializable {
 
   public String branchNamePrefix
-  private String branchName
+//   private String branchName
 
   BranchNamePrefix(String branchName){
     this.branchNamePrefix = branchName
