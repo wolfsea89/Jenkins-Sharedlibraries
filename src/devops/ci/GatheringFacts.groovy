@@ -63,13 +63,7 @@ class GatheringFacts implements Serializable {
         // }
     }
 
-    public GatheringFacts setParametersFromForm
-    (
-        Stirng branchName,
-        String repositoryUrl,
-        String manualVersion
-    )
-    {
+    public GatheringFacts setParametersFromForm(Parameters parameters){
         this.branchName = parameters.branchName
         this.repositoryUrl = parameters.repositoryUrl
         this.manualVersion = parameters.manualVersion
