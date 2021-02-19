@@ -47,7 +47,7 @@ class GatheringFacts implements Serializable {
         } else {
             throw new IllegalArgumentException('ERROR: Invalid set manual version')
         }
-        this.branchNamePrefix = new BranchNamePrefix(branchName).getBranchPrefix()
+        this.branchNamePrefix = new BranchNamePrefix(branchName).getBranchNamePrefix()
 
         return this
     }
