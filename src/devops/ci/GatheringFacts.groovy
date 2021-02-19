@@ -1,14 +1,5 @@
 package devops.ci
 
-import devops.ci.models.*
-
-import groovy.json.JsonSlurper
-// import java.io.File
-import jenkins.*
-import jenkins.model.*
-import hudson.*
-import hudson.model.*  
-
 class GatheringFacts implements Serializable {
 
     String branchName
@@ -31,13 +22,6 @@ class GatheringFacts implements Serializable {
 
     GatheringFacts(){
 
-        // // Set variables
-        // isFeature()
-        // isEpicFeature()
-        // isDevelop()
-        // isRelease()
-        // isHotfix()
-        // isMaster()
         // setArifactType()
         // semanticVersion()
         // this.versionWithBuildNumber = this.version + "." + this.jobBuildNumber
@@ -60,6 +44,7 @@ class GatheringFacts implements Serializable {
         } else {
             throw new IllegalArgumentException('ERROR: Invalid set manual version')
         }
+        this.branchNamePrefix = new BranchPrefix(branchName).getBranchPrefix()
 
         return this
     }
@@ -85,58 +70,7 @@ class GatheringFacts implements Serializable {
         this.applicationConfiguration = applicationConfiguration.getClass()
     }
 
-    // @NonCPS
-    // public Boolean isFeature(){
-    //     if (this.branchName ==~ /(.*\/feature)|(feature)\/.*$/){
-    //         this.branchNamePrefix = 'feature'
-    //         return true
-    //     }
-    // }
     
-    // @NonCPS
-    // public Boolean isEpicFeature(){
-    //     if (this.branchName ==~ /(.*\/epicfeature)|(epicfeature)\/.*$/){
-    //         this.branchNamePrefix = 'epicfeature'
-    //         return true
-    //     }
-    // }
-
-    // @NonCPS
-    // public Boolean isDevelop(){
-    //     if (this.branchName ==~ /(.*\/develop)|(develop)$/){
-    //         this.branchNamePrefix = 'develop'
-    //         return true
-    //     }
-    // }
-
-    // @NonCPS
-    // public Boolean isRelease(){
-    //     if (this.branchName ==~ /(.*\/release|release)(\/([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.0)|)$/){
-    //         this.branchNamePrefix = 'release'
-    //         return true
-    //     }
-    // }
-
-    // @NonCPS
-    // public Boolean isHotfix(){
-    //     if (this.branchName ==~ /(.*\/hotfix|hotfix)(\/([0-9]+\.[0-9]+\.[0-9]+)|)$/){
-    //         this.branchNamePrefix = 'hotfix'
-    //         return true
-    //     }
-    // }
-
-    // @NonCPS
-    // public Boolean isMaster(){
-    //     if (this.branchName ==~ /(.*\/master)|(master)$/){
-    //         this.branchNamePrefix = 'master'
-    //         return true
-    //     }
-    // }
-
-    // @NonCPS
-    // public String setArifactType(){
-    //     this.artifactType = (this.branchNamePrefix ==~/^release|hotfix$/) ? 'release' : 'snapshot'
-    // }
 
     // @NonCPS
     // public String semanticVersion(){
