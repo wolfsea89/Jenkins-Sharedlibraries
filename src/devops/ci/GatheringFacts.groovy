@@ -8,6 +8,7 @@ class GatheringFacts implements Serializable {
     public String branchNamePrefix
     public String repositoryUrl
     public String manualVersion
+    public String version
     public String jobName
     public String jobBuildNumber
     public String workspace
@@ -18,7 +19,7 @@ class GatheringFacts implements Serializable {
     
     // String nodeName
     // String artifactType 
-    // String version
+    
     // String versionWithBuildNumber
 
     GatheringFacts(){
@@ -44,7 +45,7 @@ class GatheringFacts implements Serializable {
         } else {
             throw new IllegalArgumentException('ERROR: Branch invalid with GitFlow')
         }
-        
+
         this.repositoryUrl = repositoryUrl
 
         if(manualVersion == "" || manualVersion ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
@@ -53,7 +54,7 @@ class GatheringFacts implements Serializable {
             throw new IllegalArgumentException('ERROR: Invalid set manual version')
         }
 
-
+        this.version = Version(this.branchNamePrefix, this.branchName, this.manualVersion)
         return this
     }
 
