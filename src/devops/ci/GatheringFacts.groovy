@@ -64,7 +64,7 @@ class GatheringFacts implements Serializable {
     }
 
     public GatheringFacts setParametersFromForm(def Parameters){
-        this.test = Parameters
+        this.test = Parameters.branch
         return this
     }
 
