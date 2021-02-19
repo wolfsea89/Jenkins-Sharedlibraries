@@ -4,17 +4,17 @@ import devops.ci.*
 
 class GatheringFacts implements Serializable {
 
-    String branchName
-    String branchNamePrefix
-    String repositoryUrl
-    String manualVersion
-    String jobName
-    String jobBuildNumber
-    String workspace
-    String gitCredentialId
-    String applicationJsonFile
-    String jenkinsScriptDirectory
-    Object applicationConfiguration
+    public String branchName
+    public String branchNamePrefix
+    public String repositoryUrl
+    public String manualVersion
+    public String jobName
+    public String jobBuildNumber
+    public String workspace
+    public String gitCredentialId
+    public String applicationJsonFile
+    public String jenkinsScriptDirectory
+    public Object applicationConfiguration
     
     // String nodeName
     // String branchNamePrefix
