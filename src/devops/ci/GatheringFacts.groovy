@@ -15,6 +15,8 @@ class GatheringFacts implements Serializable {
     String repositoryUrl
     String manualVersion
 
+    String test
+
     // String jobName
     // String jobBuildNumber
     // String nodeName
@@ -63,7 +65,8 @@ class GatheringFacts implements Serializable {
         // }
     }
 
-    public GatheringFacts setParametersFromForm(Parameters parameters){
+    public GatheringFacts setParametersFromForm(Map parameters){
+        this.test = parameters.getClass()
         this.branchName = parameters.branchName
         this.repositoryUrl = parameters.repositoryUrl
         this.manualVersion = parameters.manualVersion
