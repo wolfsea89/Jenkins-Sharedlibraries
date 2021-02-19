@@ -26,7 +26,7 @@ class GatheringFacts implements Serializable {
     String gitCredentialId
     String applicationJsonFile
     Object applicationConfiguration
-    def test
+    Parameters test
 
     GatheringFacts(){
         // Params
@@ -63,7 +63,7 @@ class GatheringFacts implements Serializable {
         // }
     }
 
-    public GatheringFacts setParametersFromForm(def Object){
+    public GatheringFacts setParametersFromForm(def Parameters){
         this.test = Object.getClass()
         return this
     }
