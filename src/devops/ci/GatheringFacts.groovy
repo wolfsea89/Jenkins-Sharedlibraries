@@ -17,11 +17,9 @@ class GatheringFacts implements Serializable {
     public Object applicationConfiguration
     
     // String nodeName
-    // String branchNamePrefix
     // String artifactType 
     // String version
     // String versionWithBuildNumber
-    // Object applicationConfiguration
 
     GatheringFacts(){
 
@@ -47,6 +45,8 @@ class GatheringFacts implements Serializable {
         } else {
             throw new IllegalArgumentException('ERROR: Invalid set manual version')
         }
+        def a = new BranchNamePrefix(this.branchName).branchNamePrefix
+        echo a
         this.branchNamePrefix = new BranchNamePrefix(this.branchName).branchNamePrefix
 
         return this
