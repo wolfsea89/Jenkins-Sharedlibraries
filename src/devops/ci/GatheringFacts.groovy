@@ -1,5 +1,7 @@
 package devops.ci
 
+import devops.ci.models.*
+
 import groovy.json.JsonSlurper
 // import java.io.File
 import jenkins.*
