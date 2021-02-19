@@ -50,7 +50,7 @@ class GatheringFacts implements Serializable {
             this.branchNamePrefix = branchNamePrefix
         } else {
             throw new IllegalArgumentException('ERROR: Branch invalid with GitFlow')
-        // }
+        }
 
         return this
     }
