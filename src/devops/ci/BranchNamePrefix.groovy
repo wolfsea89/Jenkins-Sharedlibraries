@@ -7,6 +7,7 @@ class BranchNamePrefix implements Serializable {
 
   BranchNamePrefix(String branchName){
     this.branchName = branchNamePrefix
+    print this.branchName
     isFeature()
     isEpicFeature()
     isDevelop()
