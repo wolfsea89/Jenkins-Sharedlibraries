@@ -46,7 +46,7 @@ class GatheringFacts implements Serializable {
             throw new IllegalArgumentException('ERROR: Invalid set manual version')
         }
         def a = new BranchNamePrefix(this.branchName).branchNamePrefix
-        echo a
+        print a
         this.branchNamePrefix = new BranchNamePrefix(this.branchName).branchNamePrefix
 
         return this
