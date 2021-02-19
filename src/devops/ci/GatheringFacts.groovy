@@ -54,7 +54,7 @@ class GatheringFacts implements Serializable {
             throw new IllegalArgumentException('ERROR: Invalid set manual version')
         }
 
-        this.version = Version(this.branchNamePrefix, this.branchName, this.manualVersion)
+        this.version = new Version(this.branchNamePrefix, this.branchName, this.manualVersion)
         return this
     }
 
