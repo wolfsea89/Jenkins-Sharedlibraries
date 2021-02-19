@@ -64,7 +64,7 @@ class GatheringFacts implements Serializable {
     }
 
     public GatheringFacts setParametersFromForm(def Parameters){
-        this.test = Object.getClass()
+        this.test = Parameters
         return this
     }
 
