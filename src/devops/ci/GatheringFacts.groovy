@@ -20,7 +20,7 @@ class GatheringFacts implements Serializable {
     String gitCredentialId
     String applicationJsonFile
     String jenkinsScriptDirectory
-    def applicationConfiguration
+    Object applicationConfiguration
     
     // String nodeName
     // String branchNamePrefix
@@ -81,7 +81,7 @@ class GatheringFacts implements Serializable {
         return this
     }
 
-    public GatheringFacts setApplicationConfiguration(JSONObject jsonText){
+    public GatheringFacts setApplicationConfiguration(Object json){
         this.applicationConfiguration = applicationConfiguration.getClass()
     }
 
