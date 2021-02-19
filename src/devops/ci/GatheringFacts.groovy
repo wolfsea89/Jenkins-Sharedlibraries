@@ -1,5 +1,7 @@
 package devops.ci
 
+import devops.ci.*
+
 class GatheringFacts implements Serializable {
 
     String branchName
