@@ -18,16 +18,8 @@ class GatheringFacts implements Serializable {
     public String jenkinsScriptDirectory
     public Object applicationConfiguration
     public String artifactType
-    
-    // String nodeName
-    // String artifactType 
 
-    GatheringFacts(){
-
-        // setArifactType()
-        // semanticVersion()
-        // this.versionWithBuildNumber = this.version + "." + this.jobBuildNumber
-    }
+    GatheringFacts(){ }
 
     public GatheringFacts setParametersFromForm (
         String branchName,
