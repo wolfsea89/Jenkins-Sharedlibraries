@@ -45,9 +45,12 @@ class GatheringFacts implements Serializable {
         } else {
             throw new IllegalArgumentException('ERROR: Invalid set manual version')
         }
-        // def a = new BranchNamePrefix(this.branchName).branchNamePrefix
-        // print a
-        // this.branchNamePrefix = new BranchNamePrefix(this.branchName).branchNamePrefix
+        String branchNamePrefix = new CheckBranch(this.branchName).branchNamePrefix
+        if(branchNamePrefix){
+            this.branchNamePrefix = branchNamePrefix
+        } else {
+            throw new IllegalArgumentException('ERROR: Branch invalid with GitFlow')
+        }
 
         return this
     }
