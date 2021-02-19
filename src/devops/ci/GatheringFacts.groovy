@@ -66,7 +66,7 @@ class GatheringFacts implements Serializable {
     }
 
     public GatheringFacts setParametersFromForm(Map parameters){
-        this.test = parameters.getClass()
+        this.test = parameters.$class
         this.branchName = parameters.branchName
         this.repositoryUrl = parameters.repositoryUrl
         this.manualVersion = parameters.manualVersion
