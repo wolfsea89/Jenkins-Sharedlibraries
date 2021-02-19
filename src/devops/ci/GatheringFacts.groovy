@@ -61,88 +61,89 @@ class GatheringFacts implements Serializable {
         // }
     }
 
-    public GatheringFacts setParametersFromForm(def Object)
+    public GatheringFacts setParametersFromForm(def Object){
         this.test = Object.getClass()
         return this
-
-    @NonCPS
-    public Boolean isFeature(){
-        if (this.branchName ==~ /(.*\/feature)|(feature)\/.*$/){
-            this.branchNamePrefix = 'feature'
-            return true
-        }
     }
+
+    // @NonCPS
+    // public Boolean isFeature(){
+    //     if (this.branchName ==~ /(.*\/feature)|(feature)\/.*$/){
+    //         this.branchNamePrefix = 'feature'
+    //         return true
+    //     }
+    // }
     
-    @NonCPS
-    public Boolean isEpicFeature(){
-        if (this.branchName ==~ /(.*\/epicfeature)|(epicfeature)\/.*$/){
-            this.branchNamePrefix = 'epicfeature'
-            return true
-        }
-    }
+    // @NonCPS
+    // public Boolean isEpicFeature(){
+    //     if (this.branchName ==~ /(.*\/epicfeature)|(epicfeature)\/.*$/){
+    //         this.branchNamePrefix = 'epicfeature'
+    //         return true
+    //     }
+    // }
 
-    @NonCPS
-    public Boolean isDevelop(){
-        if (this.branchName ==~ /(.*\/develop)|(develop)$/){
-            this.branchNamePrefix = 'develop'
-            return true
-        }
-    }
+    // @NonCPS
+    // public Boolean isDevelop(){
+    //     if (this.branchName ==~ /(.*\/develop)|(develop)$/){
+    //         this.branchNamePrefix = 'develop'
+    //         return true
+    //     }
+    // }
 
-    @NonCPS
-    public Boolean isRelease(){
-        if (this.branchName ==~ /(.*\/release|release)(\/([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.0)|)$/){
-            this.branchNamePrefix = 'release'
-            return true
-        }
-    }
+    // @NonCPS
+    // public Boolean isRelease(){
+    //     if (this.branchName ==~ /(.*\/release|release)(\/([0-9]+\.[0-9]+|[0-9]+\.[0-9]+\.0)|)$/){
+    //         this.branchNamePrefix = 'release'
+    //         return true
+    //     }
+    // }
 
-    @NonCPS
-    public Boolean isHotfix(){
-        if (this.branchName ==~ /(.*\/hotfix|hotfix)(\/([0-9]+\.[0-9]+\.[0-9]+)|)$/){
-            this.branchNamePrefix = 'hotfix'
-            return true
-        }
-    }
+    // @NonCPS
+    // public Boolean isHotfix(){
+    //     if (this.branchName ==~ /(.*\/hotfix|hotfix)(\/([0-9]+\.[0-9]+\.[0-9]+)|)$/){
+    //         this.branchNamePrefix = 'hotfix'
+    //         return true
+    //     }
+    // }
 
-    @NonCPS
-    public Boolean isMaster(){
-        if (this.branchName ==~ /(.*\/master)|(master)$/){
-            this.branchNamePrefix = 'master'
-            return true
-        }
-    }
+    // @NonCPS
+    // public Boolean isMaster(){
+    //     if (this.branchName ==~ /(.*\/master)|(master)$/){
+    //         this.branchNamePrefix = 'master'
+    //         return true
+    //     }
+    // }
 
-    @NonCPS
-    public String setArifactType(){
-        this.artifactType = (this.branchNamePrefix ==~/^release|hotfix$/) ? 'release' : 'snapshot'
-    }
+    // @NonCPS
+    // public String setArifactType(){
+    //     this.artifactType = (this.branchNamePrefix ==~/^release|hotfix$/) ? 'release' : 'snapshot'
+    // }
 
-    @NonCPS
-    public String semanticVersion(){
+    // @NonCPS
+    // public String semanticVersion(){
 
-        def now = new Date()
-        def version = "${now.format('yyyy.M.d', TimeZone.getTimeZone('UTC'))}"
+    //     def now = new Date()
+    //     def version = "${now.format('yyyy.M.d', TimeZone.getTimeZone('UTC'))}"
 
-        if (this.branchNamePrefix ==~ /release|hotfix|master/) {
+    //     if (this.branchNamePrefix ==~ /release|hotfix|master/) {
             
-            if(this.manualVersion){
-                version = "${manualVersion}"
-            } else {
-                def substring = this.branchName.split('/')
-                if(substring.last() ==~ /[0-9]+\.[0-9]+$/){
-                    version = "${substring.last()}.0"
-                } else if(substring.last() ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
-                    version = "${substring.last()}"
-                } else {
-                    throw new IOException('ERROR: I can\'t set the version')
-                }
-            }
-        }
-        this.version = version
-    }
+    //         if(this.manualVersion){
+    //             version = "${manualVersion}"
+    //         } else {
+    //             def substring = this.branchName.split('/')
+    //             if(substring.last() ==~ /[0-9]+\.[0-9]+$/){
+    //                 version = "${substring.last()}.0"
+    //             } else if(substring.last() ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
+    //                 version = "${substring.last()}"
+    //             } else {
+    //                 throw new IOException('ERROR: I can\'t set the version')
+    //             }
+    //         }
+    //     }
+    //     this.version = version
+    // }
 
-    public void setApplicationConfiguration(Object applicationConfiguration){
-        this.applicationConfiguration = applicationConfiguration
-    }
+    // public void setApplicationConfiguration(Object applicationConfiguration){
+    //     this.applicationConfiguration = applicationConfiguration
+    // }
 }
