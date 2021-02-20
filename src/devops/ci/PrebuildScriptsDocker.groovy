@@ -9,7 +9,7 @@ class PrebuildScriptsDocker implements Serializable {
   PrebuildScriptsDocker(def pipeline){
     this.pipeline = pipeline
   }
-
+  Script script;
   def setVersionFiles(Object applications, String version){
     
     for(docker_project in applications){
@@ -20,7 +20,7 @@ class PrebuildScriptsDocker implements Serializable {
       
       this.pipeline.writeFile(file: docker_project.dockerfilePath, text: file)
       
-      dsl.print("Set version in file ${docker_project.dockerfilePath}")
+      script.echo("Set version in file ${docker_project.dockerfilePath}")
     }
   }
 }
