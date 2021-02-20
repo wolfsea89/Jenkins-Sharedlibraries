@@ -10,7 +10,7 @@ class PrebuildScriptsDocker{
     this.pipeline = pipeline
   }
 
-  def setVersion(List applications, String version){
+  def setVersion(Object applications, String version){
     for(docker_project in applications){
 
       def file = readFile file: docker_project.dockerfilePath
