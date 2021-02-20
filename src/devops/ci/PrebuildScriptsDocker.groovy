@@ -4,13 +4,17 @@ import devops.ci.*
 
 class PrebuildScriptsDocker implements Serializable {
 
-  private def applications
+  private Object applications
   private String Version
 
   private def pipeline
 
   PrebuildScriptsDocker(def pipeline){
     this.pipeline = pipeline
+  }
+
+  public setApplications(Object applications){
+    this.applications = applications
   }
 
 
