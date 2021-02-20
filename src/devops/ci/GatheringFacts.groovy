@@ -59,7 +59,7 @@ class GatheringFacts implements Serializable {
         String jenkinsScriptDirectory,
         String gitCredentialId,
         String applicationJsonFile
-        Stromg baseImagesAdminCredentialsInService
+        String baseImagesAdminCredentialsInService
     ){
         this.jobName = jobName
         this.jobBuildNumber = jobBuildNumber
