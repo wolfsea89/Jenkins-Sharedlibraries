@@ -25,7 +25,7 @@ class PrebuildScriptsDocker implements Serializable {
   }
 
   public PrebuildScriptsDocker setAdminsCredentials(String adminsCredentials){
-    this.adminCredentials = adminsCredentials
+    this.adminCredentials = adminCredentials
     return this
   }
 
