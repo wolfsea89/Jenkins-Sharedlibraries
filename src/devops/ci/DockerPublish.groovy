@@ -2,13 +2,13 @@ package devops.ci
 
 import devops.ci.*
 
-class DockerBuild implements Serializable {
+class DockerPublish implements Serializable {
 
   private Object applications
   private String version
   private def pipeline
 
-  DockerBuild(def pipeline){
+  DockerPublish(def pipeline){
     this.pipeline = pipeline
   }
 
@@ -22,22 +22,14 @@ class DockerBuild implements Serializable {
     return this
   }
 
-  public void buildProjects(){
+  public void publish(String dockerRepositoryUrl, String dockerRepositoryName, String dockerCredentialId){
 
-    for(project in this.applications){
-      this.pipeline.sh("docker build -t ${project.name}:${this.version} -f ${project.dockerfilePath} --no-cache .")
-    }
-
-  } 
-
-  public void publishBaseImage(String dockerRepositoryUrl, String dockerRepositoryName, String dockerCredentialId){
-
-  docker.withRegistry(dockerRepositoryUrl, dockerCredentialId) {
+  this.pipeline.docker.withRegistry(dockerRepositoryUrl, dockerCredentialId) {
 
     String projectName
     String repositoryName
 
-    for(project in projects){
+    for(project in this.applications){
       projectName = project.name
       repositoryName = dockerRepositoryName.replace("\${projectName}", projectName)
 
