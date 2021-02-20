@@ -5,7 +5,7 @@ import devops.ci.*
 class PrebuildScriptsDocker implements Serializable {
 
   private Object applications
-  private String Version
+  private String version
 
   private def pipeline
 
@@ -15,6 +15,10 @@ class PrebuildScriptsDocker implements Serializable {
 
   public setApplications(Object applications){
     this.applications = applications
+  }
+
+  public setVersion(String version){
+    this.version = version
   }
 
 
