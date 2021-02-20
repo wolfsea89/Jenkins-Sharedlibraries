@@ -30,5 +30,21 @@ class DockerCi implements Serializable {
 
   } 
 
+  public void publishBaseImage(String dockerRepositoryUrl, String dockerRepositoryName, String dockerCredentialId){
+
+  docker.withRegistry(dockerRepositoryUrl, dockerCredentialId) {
+
+    String projectName
+    String repositoryName
+
+    for(project in projects){
+      projectName = project.name
+      repositoryName = dockerRepositoryName.replace("\${projectName}", projectName)
+
+      sh("docker tag $projectName:$version $repositoryName:$version")
+      sh("docker push $repositoryName:$version")
+    }
+  }
+}
 
 }
