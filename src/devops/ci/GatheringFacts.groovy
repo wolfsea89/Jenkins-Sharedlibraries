@@ -58,7 +58,7 @@ class GatheringFacts implements Serializable {
         String workspace,
         String jenkinsScriptDirectory,
         String gitCredentialId,
-        String applicationJsonFile
+        String applicationJsonFile,
         String baseImagesAdminCredentialsInService
     ){
         this.jobName = jobName
