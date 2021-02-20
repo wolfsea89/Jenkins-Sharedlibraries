@@ -2,7 +2,7 @@ package devops.ci
 
 import devops.ci.*
 
-class PrebuildScriptsDocker{
+class PrebuildScriptsDocker implements Serializable {
 
   private def pipeline
 
