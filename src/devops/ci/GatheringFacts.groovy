@@ -18,6 +18,7 @@ class GatheringFacts implements Serializable {
     public String jenkinsScriptDirectory
     public Object applicationConfiguration
     public String artifactType
+    public String baseImagesAdminCredentialsInService
 
     GatheringFacts(){ }
 
@@ -58,6 +59,7 @@ class GatheringFacts implements Serializable {
         String jenkinsScriptDirectory,
         String gitCredentialId,
         String applicationJsonFile
+        Stromg baseImagesAdminCredentialsInService
     ){
         this.jobName = jobName
         this.jobBuildNumber = jobBuildNumber
@@ -65,6 +67,7 @@ class GatheringFacts implements Serializable {
         this.jenkinsScriptDirectory = jenkinsScriptDirectory
         this.gitCredentialId = gitCredentialId
         this.applicationJsonFile = applicationJsonFile
+        this.baseImagesAdminCredentialsInService = baseImagesAdminCredentialsInService
         return this
     }
 
