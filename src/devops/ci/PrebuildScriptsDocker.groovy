@@ -7,6 +7,7 @@ class PrebuildScriptsDocker implements Serializable {
   private Object applications
   private String version
   private String adminCredentials
+  private String jenkinsInfo
 
   private def pipeline
 
@@ -29,6 +30,11 @@ class PrebuildScriptsDocker implements Serializable {
     return this
   }
 
+  public PrebuildScriptsDocker setJenkinsJobInfo(String jobName, String jobBuildNumber){
+    this.jenkinsInfo = "Created by Jenkins job: " + jobName + ':#' + jobBuildNumber
+  }
+
+
 
   public void execute(){
     
@@ -39,6 +45,7 @@ class PrebuildScriptsDocker implements Serializable {
       if(this.version){
         file = file.replaceAll('\\$\\{jenkins_include_version\\}', this.version)
       }
+
       if(this.adminCredentials){
         this.pipeline.println(this.adminCredentials)
         this.pipeline.withCredentials([
@@ -47,6 +54,10 @@ class PrebuildScriptsDocker implements Serializable {
           file = file.replaceAll('\\$\\{jenkins_include_admin_username\\}',this.pipeline.USERNAME)
           file = file.replaceAll('\\$\\{jenkins_include_admin_password\\}',this.pipeline.PASSWORD)
         }
+      }
+
+      if(this.jenkinsInfo){
+        file = file.replaceAll('\\$\\{jenkins_include_jenkinsJob\\}',this.jenkinsInfo)
       }
       
       this.pipeline.writeFile(file: docker_project.dockerfilePath, text: file)
