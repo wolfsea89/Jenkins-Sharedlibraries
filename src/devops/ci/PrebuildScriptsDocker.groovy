@@ -2,11 +2,11 @@ package devops.ci
 
 import devops.ci.*
 
-class PprebuildScriptsDocker{
+class PrebuildScriptsDocker{
 
   private def pipeline
 
-  PprebuildScriptsDocker(def pipeline){
+  PrebuildScriptsDocker(def pipeline){
     this.pipeline = pipeline
   }
 
