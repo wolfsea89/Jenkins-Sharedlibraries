@@ -45,7 +45,7 @@ class PrebuildScriptsDocker implements Serializable {
           this.pipeline.usernamePassword(credentialsId: this.adminCredentials, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
         ]) {
           file = file.replaceAll('\\$\\{jenkins_include_admin_username\\}',this.pipeline.USERNAME)
-          file = file.replaceAll('\\$\\{jenkins_include_admin_password\\}',this.pipeline.$PASSWORD)
+          file = file.replaceAll('\\$\\{jenkins_include_admin_password\\}',this.pipeline.PASSWORD)
         }
       }
       
