@@ -2,13 +2,13 @@ package devops.ci
 
 import devops.ci.*
 
-class DockerCi implements Serializable {
+class DockerBuild implements Serializable {
 
   private Object applications
   private String version
   private def pipeline
 
-  DockerCi(def pipeline){
+  DockerBuild(def pipeline){
     this.pipeline = pipeline
   }
 
