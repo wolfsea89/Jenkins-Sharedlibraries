@@ -47,7 +47,6 @@ class PrebuildScriptsDocker implements Serializable {
       }
 
       if(this.adminCredentials){
-        this.pipeline.println(this.adminCredentials)
         this.pipeline.withCredentials([
           this.pipeline.usernamePassword(credentialsId: this.adminCredentials, usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')
         ]) {
