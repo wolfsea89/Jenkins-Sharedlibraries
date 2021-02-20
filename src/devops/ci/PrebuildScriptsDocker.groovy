@@ -20,7 +20,7 @@ class PrebuildScriptsDocker implements Serializable {
       
       this.pipeline.writeFile(file: docker_project.dockerfilePath, text: file)
       
-      println("Set version in file ${docker_project.dockerfilePath}")
+      print("Set version in file ${docker_project.dockerfilePath}")
     }
   }
 }
