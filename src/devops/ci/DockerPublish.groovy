@@ -33,8 +33,8 @@ class DockerPublish implements Serializable {
       projectName = project.name
       repositoryName = dockerRepositoryName.replace("\${projectName}", projectName)
 
-      sh("docker tag $projectName:$version $repositoryName:$version")
-      sh("docker push $repositoryName:$version")
+      this.pipeline.sh("docker tag $projectName:$version $repositoryName:$version")
+      this.pipeline.sh("docker push $repositoryName:$version")
     }
   }
 }
