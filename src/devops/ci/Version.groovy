@@ -14,7 +14,7 @@ class Version implements Serializable {
         if(manualVersion){
             version = "${manualVersion}"
         } else {
-            def substring = this.branchName.split('/')
+            def substring = branchName.split('/')
             if(substring.last() ==~ /[0-9]+\.[0-9]+$/){
                 version = "${substring.last()}.0"
             } else if(substring.last() ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
