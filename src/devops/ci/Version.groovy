@@ -4,14 +4,14 @@ class Version implements Serializable {
 
   String version
 
-  Version(String branchNamePrefix, String branchName, String manualVersion = ""){
+  Version(String branchNamePrefix, String branchName, String manualVersion = "0.0.0"){
 
     def now = new Date()
     def version = "${now.format('yyyy.M.d', TimeZone.getTimeZone('UTC'))}"
 
     if (branchNamePrefix ==~ /release|hotfix|master/) {
             
-        if(this.manualVersion){
+        if(this.manualVersion != '0.0.0'){
             version = "${manualVersion}"
         } else {
             def substring = this.branchName.split('/')

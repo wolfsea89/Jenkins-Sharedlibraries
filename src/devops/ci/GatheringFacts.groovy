@@ -30,7 +30,10 @@ class GatheringFacts implements Serializable {
     ){
         this.branchName = branchName
         this.repositoryUrl = repositoryUrl
-        if(manualVersion == "" || manualVersion ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
+        if(manualVersion == ""){
+            this.manualVersion = '0.0.0'
+        }
+        else if (manualVersion ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
             this.manualVersion = manualVersion
         } else {
             throw new IllegalArgumentException('ERROR: Invalid set manual version')
@@ -45,7 +48,7 @@ class GatheringFacts implements Serializable {
         }
 
         // Set version
-        this.version = new Version(this.branchNamePrefix, this.branchName, manualVersion).version
+        this.version = new Version(this.branchNamePrefix, this.branchName, this.manualVersion).version
 
         // Set artifact type
         this.artifactType = (this.branchNamePrefix  ==~ /release|hotfix/) ? "release" : "snapshot"
