@@ -49,9 +49,9 @@ class DockerPublish implements Serializable {
       projectName = project.name
       // repositoryName = dockerRepositoryName.replace("\${projectName}", projectName)
       if(dockerRepositoryName){
-        this.pipeline.sh("docker rmi $dockerRepositoryName:$version")
+        this.pipeline.sh("docker rmi $dockerRepositoryName:$version || true")
       } else {
-        this.pipeline.sh("docker rmi $projectName:$version")
+        this.pipeline.sh("docker rmi $projectName:$version || true")
       }
     }
   }
