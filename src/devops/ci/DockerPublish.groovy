@@ -24,19 +24,35 @@ class DockerPublish implements Serializable {
 
   public void publish(String dockerRepositoryUrl, String dockerRepositoryName, String dockerCredentialId){
 
-  this.pipeline.docker.withRegistry(dockerRepositoryUrl, dockerCredentialId) {
+    this.pipeline.docker.withRegistry(dockerRepositoryUrl, dockerCredentialId) {
 
-    String projectName
-    String repositoryName
+      String projectName
+      String repositoryName
 
-    for(project in this.applications){
-      projectName = project.name
-      repositoryName = dockerRepositoryName.replace("\${projectName}", projectName)
+      for(project in this.applications){
+        projectName = project.name
+        repositoryName = dockerRepositoryName.replace("\${projectName}", projectName)
 
-      this.pipeline.sh("docker tag $projectName:$version $repositoryName:$version")
-      this.pipeline.sh("docker push $repositoryName:$version")
+        this.pipeline.sh("docker tag $projectName:$version $repositoryName:$version")
+        this.pipeline.sh("docker push $repositoryName:$version")
+
+      }
     }
   }
-}
 
+  public void clean(String dockerRepositoryUrl, String dockerRepositoryName, String dockerCredentialId){
+
+    this.pipeline.docker.withRegistry(dockerRepositoryUrl, dockerCredentialId) {
+
+      String projectName
+      String repositoryName
+
+      for(project in this.applications){
+        projectName = project.name
+        repositoryName = dockerRepositoryName.replace("\${projectName}", projectName)
+
+        this.pipeline.sh("docker rmi $projectName:$version")
+        this.pipeline.sh("docker rmi $repositoryName:$version")
+      }
+    }
 }
