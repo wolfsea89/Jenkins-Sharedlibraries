@@ -30,10 +30,7 @@ class GatheringFacts implements Serializable {
     ){
         this.branchName = branchName
         this.repositoryUrl = repositoryUrl
-        if(manualVersion == ""){
-            this.manualVersion = '0.0.0'
-        }
-        else if (manualVersion ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
+        if(manualVersion == "" || manualVersion ==~ /[0-9]+\.[0-9]+\.[0-9]+$/){
             this.manualVersion = manualVersion
         } else {
             throw new IllegalArgumentException('ERROR: Invalid set manual version')
