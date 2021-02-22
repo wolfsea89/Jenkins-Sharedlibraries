@@ -40,7 +40,7 @@ class DockerPublish implements Serializable {
     }
   }
 
-  public void clean(String dockerRepositoryName){
+  public void clean(String dockerRepositoryName = ""){
 
     String projectName
     // String repositoryName
@@ -48,9 +48,11 @@ class DockerPublish implements Serializable {
     for(project in this.applications){
       projectName = project.name
       // repositoryName = dockerRepositoryName.replace("\${projectName}", projectName)
-
-      this.pipeline.sh("docker rmi $projectName:$version")
-      this.pipeline.sh("docker rmi $dockerRepositoryName:$version")
+      if(dockerRepositoryName){
+        this.pipeline.sh("docker rmi $projectName:$version")
+      } else {
+        this.pipeline.sh("docker rmi $dockerRepositoryName:$version")
+      }
     }
   }
 }
