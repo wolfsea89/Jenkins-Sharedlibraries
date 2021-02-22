@@ -45,7 +45,7 @@ class GatheringFacts implements Serializable {
         }
 
         // Set version
-        this.version = new Version(this.branchNamePrefix, this.branchName, this.manualVersion).version
+        this.version = new Version(this.branchNamePrefix, this.branchName, manualVersion).version
 
         // Set artifact type
         this.artifactType = (this.branchNamePrefix  ==~ /release|hotfix/) ? "release" : "snapshot"
