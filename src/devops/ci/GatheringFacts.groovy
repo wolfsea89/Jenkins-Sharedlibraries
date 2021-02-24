@@ -40,8 +40,8 @@ class GatheringFacts implements Serializable {
         String branchNamePrefix = new CheckBranch(this.branchName).branchNamePrefix
         if(branchNamePrefix){
             this.branchNamePrefix = branchNamePrefix
-        } else {
-            throw new IllegalArgumentException('ERROR: Branch invalid with GitFlow')
+        // } else {
+            // throw new IllegalArgumentException('ERROR: Branch invalid with GitFlow')
         }
 
         // Set version
