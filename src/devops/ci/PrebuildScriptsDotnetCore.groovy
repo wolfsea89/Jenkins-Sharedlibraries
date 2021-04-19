@@ -31,12 +31,11 @@ class PrebuildScriptsDotnetCore implements Serializable {
 
   public void execute(){
 
-    for(file in this.pipeline.findFiles(glob: '**/version.props')){
+    for(version_file in this.pipeline.findFiles(glob: '**/version.props')){
+
+      def file = this.pipeline.readFile file: version_file
 
       this.pipeline.println(file)
-
-      // def file = this.pipeline.readFile file: docker_project.dockerfilePath
-
       // if(this.version){
       //   file = file.replaceAll('\\$\\{jenkins_include_version\\}', this.version)
       // }
