@@ -34,14 +34,12 @@ class PrebuildScriptsDocker implements Serializable {
     this.jenkinsInfo = "Created by Jenkins job: " + jobName + ':#' + jobBuildNumber
   }
 
-
-
   public void execute(){
-    
+
     for(docker_project in this.applications){
 
       def file = this.pipeline.readFile file: docker_project.dockerfilePath
-      
+
       if(this.version){
         file = file.replaceAll('\\$\\{jenkins_include_version\\}', this.version)
       }
@@ -58,7 +56,7 @@ class PrebuildScriptsDocker implements Serializable {
       if(this.jenkinsInfo){
         file = file.replaceAll('\\$\\{jenkins_include_jenkinsJob\\}',this.jenkinsInfo)
       }
-      
+
       this.pipeline.writeFile(file: docker_project.dockerfilePath, text: file)
       this.pipeline.println("Set version in file ${docker_project.dockerfilePath}")
     }
