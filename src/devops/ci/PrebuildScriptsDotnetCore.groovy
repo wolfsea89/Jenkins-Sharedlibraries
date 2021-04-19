@@ -35,7 +35,6 @@ class PrebuildScriptsDotnetCore implements Serializable {
 
       def file = this.pipeline.readFile file: "${version_file}"
 
-      this.pipeline.println(file)
       if(this.version){
         file = file.replaceAll('1.0.0.0', this.version)
       }
