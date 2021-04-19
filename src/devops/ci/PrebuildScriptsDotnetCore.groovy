@@ -41,7 +41,7 @@ class PrebuildScriptsDotnetCore implements Serializable {
       }
 
       if(this.jenkinsInfo){
-        file = file.replaceAll('<Description><\/Description>','<Description>' + this.jenkinsInfo + '</Description>')
+        file = file.replaceAll('<Description><\\/Description>','<Description>' + this.jenkinsInfo + '</Description>')
       }
 
       // this.pipeline.writeFile(file: docker_project.dockerfilePath, text: file)
