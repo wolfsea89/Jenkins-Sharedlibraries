@@ -31,7 +31,7 @@ class PrebuildScriptsDotnetCore implements Serializable {
 
   public void execute(){
 
-    for(file in this.findFiles(glob: '**/version.props')){
+    for(file in this.pipeline.findFiles(glob: '**/version.props')){
 
       sh.println(file)
 
