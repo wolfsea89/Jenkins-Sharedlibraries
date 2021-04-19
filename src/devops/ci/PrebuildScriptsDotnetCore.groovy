@@ -33,7 +33,7 @@ class PrebuildScriptsDotnetCore implements Serializable {
 
     for(file in this.pipeline.findFiles(glob: '**/version.props')){
 
-      sh.println(file)
+      this.pipeline.println(file)
 
       // def file = this.pipeline.readFile file: docker_project.dockerfilePath
 
