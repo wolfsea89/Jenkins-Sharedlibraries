@@ -47,8 +47,7 @@ class DotnetBuildProjects implements Serializable {
 
           def command = "dotnet build ${project.path} "
           command += project.runtime ? project.runtime : this.runtime
-          command += " "
-          command += project.buildParameters ? project.buildParameters : this.parameters
+          command += " --runtime " project.buildParameters ? project.buildParameters : this.parameters
 
           this.pipeline.println('$> ' + command)
 
