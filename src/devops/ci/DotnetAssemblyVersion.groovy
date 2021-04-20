@@ -2,7 +2,7 @@ package devops.ci
 
 import devops.ci.*
 
-class DotnetAssembyVersion implements Serializable {
+class DotnetAssemblyVersion implements Serializable {
 
   private Object applications
   private String version
@@ -11,7 +11,7 @@ class DotnetAssembyVersion implements Serializable {
 
   private def pipeline
 
-  DotnetAssembyVersion(def pipeline){
+  DotnetAssemblyVersion(def pipeline){
     this.pipeline = pipeline
   }
 
