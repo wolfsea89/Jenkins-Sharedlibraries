@@ -1,22 +1,22 @@
 package devops.ci.dotnet.core
 import devops.ci.*
 
-class DotnetBuildProjects implements Serializable {
+class DotnetBuildSolutions implements Serializable {
 
   private Object solutions
   private String parameters = "-configuration Release --verbosity normal"
   private def pipeline
 
-  DotnetBuildProjects(def pipeline){
+  DotnetBuildSolutions(def pipeline){
     this.pipeline = pipeline
   }
 
-  public DotnetBuildProjects setSolutions(Object solutions){
+  public DotnetBuildSolutions setSolutions(Object solutions){
     this.solutions = solutions
     return this
   }
 
-  public DotnetBuildProjects setParameters(String parameters){
+  public DotnetBuildSolutions setParameters(String parameters){
     this.parameters = parameters
     return this
   }

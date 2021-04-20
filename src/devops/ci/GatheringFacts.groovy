@@ -20,6 +20,7 @@ class GatheringFacts implements Serializable {
     public Object publishRepositories
     public String artifactType
     public String baseImagesAdminCredentialsInService
+    public String binaryDirectory
 
     GatheringFacts(){ }
 
@@ -62,6 +63,7 @@ class GatheringFacts implements Serializable {
         String applicationJsonFile,
         String baseImagesAdminCredentialsInService,
         Object publishRepositories
+        String binaryDirectory
     ){
         this.jobName = jobName
         this.jobBuildNumber = jobBuildNumber
@@ -71,6 +73,7 @@ class GatheringFacts implements Serializable {
         this.applicationJsonFile = applicationJsonFile
         this.baseImagesAdminCredentialsInService = baseImagesAdminCredentialsInService
         this.publishRepositories = publishRepositories
+        this.binaryDirectory = binaryDirectory
         return this
     }
 
