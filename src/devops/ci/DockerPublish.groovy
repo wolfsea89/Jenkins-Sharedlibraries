@@ -1,7 +1,7 @@
 package devops.ci
 
 import devops.ci.*
-import devops.ci.docker*
+import devops.ci.docker.*
 
 class DockerPublish implements Serializable {
 
