@@ -33,6 +33,8 @@ class DotnetBuild implements Serializable {
 
           if(solution.parameters){
               command = command + " " + "${solution.parameters}"
+          } else {
+              command = command + " " + "${this.parameters}"
           }
 
           this.pipeline.println(command)
