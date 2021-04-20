@@ -6,7 +6,7 @@ class DotnetBuildProjects implements Serializable {
   private Object projects
   private String binaryDirectory = 'b'
   private String publishDirectory = 'p'
-  private String runtimes = '[ "linux-x64" ]'
+  private Object runtimes = '[ "linux-x64" ]'
   private String parameters = "-configuration Release --verbosity normal"
   private def pipeline
 
@@ -29,7 +29,7 @@ class DotnetBuildProjects implements Serializable {
     return this
   }
 
-  public DotnetBuildProjects setRuntimes(String runtimes){
+  public DotnetBuildProjects setRuntimes(Object runtimes){
     this.runtimes = runtimes
     return this
   }
