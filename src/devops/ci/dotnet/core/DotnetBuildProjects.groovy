@@ -49,7 +49,10 @@ class DotnetBuildProjects implements Serializable {
         command += project.buildParameters ? project.buildParameters : this.parameters
 
         def buildRuntimes = project.runtimes ? project.runtimes : this.runtimes
-        for( buildRuntime in buildRuntimes){
+        this.pipeline.println(buildRuntimes)
+        for(buildRuntime in buildRuntimes){
+
+          this.pipeline.println(buildRuntime)
 
           command += " --runtime " + buildRuntime
           command += " --output ${this.binaryDirectory}/${buildRuntime}/${project.name}"
