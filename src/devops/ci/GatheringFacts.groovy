@@ -22,7 +22,7 @@ class GatheringFacts implements Serializable {
     public String baseImagesAdminCredentialsInService
     public String binaryDirectory
     public String publishDirectory
-    public String dotnetCoreRuntimes
+    public Object dotnetCoreRuntimes
 
     GatheringFacts(){ }
 
@@ -67,7 +67,7 @@ class GatheringFacts implements Serializable {
         Object publishRepositories,
         String binaryDirectory,
         String publishDirectory,
-        String dotnetCoreRuntimes
+        Object dotnetCoreRuntimes
     ){
         this.jobName = jobName
         this.jobBuildNumber = jobBuildNumber

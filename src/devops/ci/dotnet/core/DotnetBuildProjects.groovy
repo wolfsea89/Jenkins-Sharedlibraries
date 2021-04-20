@@ -53,6 +53,7 @@ class DotnetBuildProjects implements Serializable {
           this.pipeline.println(buildRuntimes)
           for( buildRuntime in buildRuntimes){
             this.pipeline.println(buildRuntime)
+            command += " --runtime " + buildRuntime
           }
 
           command += " --runtime " project.buildParameters ? project.buildParameters : this.parameters
