@@ -1,56 +1,39 @@
 package devops.ci.dotnet.core
 import devops.ci.*
 
+import java.nio.file.Files
+
 class DotnetBuild implements Serializable {
 
-  private Object applications
-  private String version
-  private String adminCredentials
-  private String jenkinsInfo
-
+  private Object solutions
+  private String parameters
   private def pipeline
 
   DotnetBuild(def pipeline){
     this.pipeline = pipeline
   }
 
-  public DotnetAssemblyVersion setApplications(Object applications){
-    this.applications = applications
+  public DotnetAssemblyVersion setSolutions(Object solutions){
+    this.solutions = solutions
     return this
   }
 
-  public DotnetAssemblyVersion setVersion(String version){
-    this.version = version
+  public DotnetAssemblyVersion setParameters(String parameters){
+    this.parameters = parameters
     return this
-  }
-
-  public DotnetAssemblyVersion setJenkinsJobInfo(String jobName, String jobBuildNumber){
-    this.jenkinsInfo = "Created by Jenkins job: " + jobName + ':#' + jobBuildNumber
   }
 
   public void execute(){
 
-    def assemblyInfoFiles = [
-      '**/AssemblyInfo.props',
-      '**/AssemblyInfo.cs',
-      '**/AssemblyInfo.vb',
-    ]
-    for(assemblyInfoFile in assemblyInfoFiles){
-      for(version_file in this.pipeline.findFiles(glob: "${assemblyInfoFile}")){
+    for(solution in solutions){
 
-        def file = this.pipeline.readFile file: "${version_file}"
-
-        if(this.version){
-          file = file.replaceAll('1.0.0.0', this.version)
+        if(Files.exists(solution)){
+            this.pipeline.println("wsk ok")
+        } else {
+            this.pipeline.println("wsk not ok")
         }
 
-        if(this.jenkinsInfo){
-          file = file.replaceAll('<Description><\\/Description>','<Description>' + this.jenkinsInfo + '</Description>')
-        }
-
-        this.pipeline.writeFile(file: "${version_file}", text: file, encoding: "UTF-8")
-        this.pipeline.println("Set version in file ${version_file}")
+        this.pipeline.println("Set version in file ${solution}")
       }
-    }
   }
 }

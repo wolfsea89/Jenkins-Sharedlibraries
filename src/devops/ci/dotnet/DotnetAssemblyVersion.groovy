@@ -5,7 +5,6 @@ class DotnetBuild implements Serializable {
 
   private Object applications
   private String version
-  private String adminCredentials
   private String jenkinsInfo
 
   private def pipeline
