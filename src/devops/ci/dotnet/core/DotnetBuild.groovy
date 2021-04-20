@@ -32,9 +32,9 @@ class DotnetBuild implements Serializable {
           def command = "dotnet build ${solution.path}"
 
           if(solution.buildParameters){
-              command = command + " " + "${solution.buildParameters}"
+              command +=  " " + "${solution.buildParameters}"
           } else {
-              command = command + " " + "${this.parameters}"
+              command +=  " " + "${this.parameters}"
           }
 
           this.pipeline.println(command)
