@@ -20,6 +20,9 @@ class GatheringFacts implements Serializable {
     public Object publishRepositories
     public String artifactType
     public String baseImagesAdminCredentialsInService
+    public String binaryDirectory
+    public String publishDirectory
+    public Object dotnetCoreRuntimes
 
     GatheringFacts(){ }
 
@@ -61,7 +64,10 @@ class GatheringFacts implements Serializable {
         String gitCredentialId,
         String applicationJsonFile,
         String baseImagesAdminCredentialsInService,
-        Object publishRepositories
+        Object publishRepositories,
+        String binaryDirectory,
+        String publishDirectory,
+        Object dotnetCoreRuntimes
     ){
         this.jobName = jobName
         this.jobBuildNumber = jobBuildNumber
@@ -71,6 +77,9 @@ class GatheringFacts implements Serializable {
         this.applicationJsonFile = applicationJsonFile
         this.baseImagesAdminCredentialsInService = baseImagesAdminCredentialsInService
         this.publishRepositories = publishRepositories
+        this.binaryDirectory = binaryDirectory
+        this.publishDirectory = publishDirectory
+        this.dotnetCoreRuntimes = dotnetCoreRuntimes
         return this
     }
 

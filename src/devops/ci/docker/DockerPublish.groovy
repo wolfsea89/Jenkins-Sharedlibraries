@@ -1,6 +1,7 @@
-package devops.ci
+package devops.ci.docker
 
 import devops.ci.*
+import devops.ci.docker.*
 
 class DockerPublish implements Serializable {
 
@@ -12,12 +13,12 @@ class DockerPublish implements Serializable {
     this.pipeline = pipeline
   }
 
-  public PrebuildScriptsDocker setApplications(Object applications){
+  public DockerPublish setApplications(Object applications){
     this.applications = applications
     return this
   }
 
-  public PrebuildScriptsDocker setVersion(String version){
+  public DockerPublish setVersion(String version){
     this.version = version
     return this
   }
