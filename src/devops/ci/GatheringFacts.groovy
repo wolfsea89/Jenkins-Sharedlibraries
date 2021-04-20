@@ -21,6 +21,8 @@ class GatheringFacts implements Serializable {
     public String artifactType
     public String baseImagesAdminCredentialsInService
     public String binaryDirectory
+    public String publishDirectory
+    public String dotnetCoreRuntime
 
     GatheringFacts(){ }
 
@@ -64,6 +66,8 @@ class GatheringFacts implements Serializable {
         String baseImagesAdminCredentialsInService,
         Object publishRepositories
         String binaryDirectory
+        String publishDirectory
+        String dotnetCoreRuntime
     ){
         this.jobName = jobName
         this.jobBuildNumber = jobBuildNumber
@@ -74,6 +78,8 @@ class GatheringFacts implements Serializable {
         this.baseImagesAdminCredentialsInService = baseImagesAdminCredentialsInService
         this.publishRepositories = publishRepositories
         this.binaryDirectory = binaryDirectory
+        this.publishDirectory = publishDirectory
+        this.dotnetCoreRuntime = dotnetCoreRuntime
         return this
     }
 
