@@ -27,13 +27,18 @@ class DotnetBuild implements Serializable {
 
     for(solution in solutions){
 
-        if(this.pipeline.fileExists(solution.path)){
-            this.pipeline.println("wsk ok")
-        } else {
-            this.pipeline.println("wsk not ok")
-        }
+      if(this.pipeline.fileExists(solution.path)){
 
-        this.pipeline.println("Set version in file ${solution}")
+          def command = "dotnet build ${solution.path}"
+
+          if(solution.parameters){
+              command = command + " " + "${solution.parameters}"
+          }
+
+          this.pipeline.println(command)
+      } else {
+          this.pipeline.error("FAILED: Build solution file not found: ${solution.path}")
       }
+    }
   }
 }
