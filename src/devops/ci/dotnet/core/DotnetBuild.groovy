@@ -23,7 +23,7 @@ class DotnetBuild implements Serializable {
     return this
   }
 
-  public void execute(){
+  public void buildSolutions(){
 
     for(solution in solutions){
 
