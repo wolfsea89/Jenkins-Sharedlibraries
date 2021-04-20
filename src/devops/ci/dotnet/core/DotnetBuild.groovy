@@ -1,12 +1,10 @@
 package devops.ci.dotnet.core
 import devops.ci.*
 
-import java.nio.file.Files
-
 class DotnetBuild implements Serializable {
 
   private Object solutions
-  private String parameters
+  private String parameters = "-configuration Release --verbosity normal"
   private def pipeline
 
   DotnetBuild(def pipeline){
