@@ -30,10 +30,9 @@ class DotnetBuild implements Serializable {
       if(this.pipeline.fileExists(solution.path)){
 
           def command = "dotnet build ${solution.path} "
-
           command += solution.buildParameters ? olution.buildParameters : this.parameters
 
-          this.pipeline.println(command)
+          this.pipeline.println('$> ' + command)
       } else {
           this.pipeline.error("FAILED: Build solution file not found: ${solution.path}")
       }
