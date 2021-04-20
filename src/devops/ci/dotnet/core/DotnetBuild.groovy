@@ -27,7 +27,7 @@ class DotnetBuild implements Serializable {
 
     for(solution in solutions){
 
-        if(Files.exists(solution)){
+        if(this.pipeline.fileExists(solution)){
             this.pipeline.println("wsk ok")
         } else {
             this.pipeline.println("wsk not ok")
