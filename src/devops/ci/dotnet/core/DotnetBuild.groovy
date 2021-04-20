@@ -1,4 +1,4 @@
-package devops.ci.dotnet
+package devops.ci.dotnet.core
 import devops.ci.*
 
 class DotnetBuild implements Serializable {

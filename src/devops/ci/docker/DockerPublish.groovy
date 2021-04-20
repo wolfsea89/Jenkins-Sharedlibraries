@@ -1,4 +1,4 @@
-package devops.ci
+package devops.ci.docker
 
 import devops.ci.*
 import devops.ci.docker.*
