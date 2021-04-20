@@ -33,6 +33,11 @@ class DotnetBuild implements Serializable {
           command += solution.buildParameters ? olution.buildParameters : this.parameters
 
           this.pipeline.println('$> ' + command)
+          def solutionBuildStatus = this.pipeline.sh(
+            script: command,
+            returnStatus: true
+          )
+          this.pipeline.println('$> ' + solutionBuildStatus)
       } else {
           this.pipeline.error("FAILED: Build solution file not found: ${solution.path}")
       }
