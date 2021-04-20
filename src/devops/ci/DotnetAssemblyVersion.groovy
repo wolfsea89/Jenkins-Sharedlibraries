@@ -31,20 +31,27 @@ class DotnetAssemblyVersion implements Serializable {
 
   public void execute(){
 
-    for(version_file in this.pipeline.findFiles(glob: '**/AssemblyInfo.props')){
+    def assemblyInfoFiles = [
+      '**/AssemblyInfo.props',
+      '**/AssemblyInfo.cs',
+      '**/AssemblyInfo.vb',
+    ]
+    for(assemblyInfoFile in assemblyInfoFiles){
+      for(version_file in this.pipeline.findFiles(glob: "${assemblyInfoFile}")){
 
-      def file = this.pipeline.readFile file: "${version_file}"
+        def file = this.pipeline.readFile file: "${version_file}"
 
-      if(this.version){
-        file = file.replaceAll('1.0.0.0', this.version)
+        if(this.version){
+          file = file.replaceAll('1.0.0.0', this.version)
+        }
+
+        if(this.jenkinsInfo){
+          file = file.replaceAll('<Description><\\/Description>','<Description>' + this.jenkinsInfo + '</Description>')
+        }
+
+        this.pipeline.writeFile(file: "${version_file}", text: file)
+        this.pipeline.println("Set version in file ${version_file}")
       }
-
-      if(this.jenkinsInfo){
-        file = file.replaceAll('<Description><\\/Description>','<Description>' + this.jenkinsInfo + '</Description>')
-      }
-
-      this.pipeline.writeFile(file: "${version_file}", text: file)
-      this.pipeline.println("Set version in file ${version_file}")
     }
   }
 }
