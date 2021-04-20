@@ -13,12 +13,12 @@ class DotnetBuild implements Serializable {
     this.pipeline = pipeline
   }
 
-  public DotnetAssemblyVersion setSolutions(Object solutions){
+  public DotnetBuild setSolutions(Object solutions){
     this.solutions = solutions
     return this
   }
 
-  public DotnetAssemblyVersion setParameters(String parameters){
+  public DotnetBuild setParameters(String parameters){
     this.parameters = parameters
     return this
   }
