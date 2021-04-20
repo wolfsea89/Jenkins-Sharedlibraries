@@ -64,9 +64,9 @@ class GatheringFacts implements Serializable {
         String gitCredentialId,
         String applicationJsonFile,
         String baseImagesAdminCredentialsInService,
-        Object publishRepositories
-        String binaryDirectory
-        String publishDirectory
+        Object publishRepositories,
+        String binaryDirectory,
+        String publishDirectory,
         String dotnetCoreRuntime
     ){
         this.jobName = jobName
