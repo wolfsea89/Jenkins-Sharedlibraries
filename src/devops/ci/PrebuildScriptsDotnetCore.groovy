@@ -31,7 +31,7 @@ class PrebuildScriptsDotnetCore implements Serializable {
 
   public void execute(){
 
-    for(version_file in this.pipeline.findFiles(glob: '**/version.props')){
+    for(version_file in this.pipeline.findFiles(glob: '**/AssemblyInfo.props')){
 
       def file = this.pipeline.readFile file: "${version_file}"
 
