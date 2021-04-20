@@ -15,17 +15,17 @@ class DotnetAssemblyVersion implements Serializable {
     this.pipeline = pipeline
   }
 
-  public PrebuildScriptsDocker setApplications(Object applications){
+  public DotnetAssemblyVersion setApplications(Object applications){
     this.applications = applications
     return this
   }
 
-  public PrebuildScriptsDocker setVersion(String version){
+  public DotnetAssemblyVersion setVersion(String version){
     this.version = version
     return this
   }
 
-  public PrebuildScriptsDocker setJenkinsJobInfo(String jobName, String jobBuildNumber){
+  public DotnetAssemblyVersion setJenkinsJobInfo(String jobName, String jobBuildNumber){
     this.jenkinsInfo = "Created by Jenkins job: " + jobName + ':#' + jobBuildNumber
   }
 

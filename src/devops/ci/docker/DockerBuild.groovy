@@ -12,12 +12,12 @@ class DockerBuild implements Serializable {
     this.pipeline = pipeline
   }
 
-  public PrebuildScriptsDocker setApplications(Object applications){
+  public DockerBuild setApplications(Object applications){
     this.applications = applications
     return this
   }
 
-  public PrebuildScriptsDocker setVersion(String version){
+  public DockerBuild setVersion(String version){
     this.version = version
     return this
   }
