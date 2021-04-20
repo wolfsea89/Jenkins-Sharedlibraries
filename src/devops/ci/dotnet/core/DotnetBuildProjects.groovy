@@ -7,7 +7,7 @@ class DotnetBuildProjects implements Serializable {
   private String binaryDirectory = 'b'
   private String publishDirectory = 'p'
   private Object runtimes = '[ "linux-x64" ]'
-  private String parameters = "-configuration Release --verbosity normal"
+  private String parameters = "--configuration Release --verbosity normal"
   private def pipeline
 
   DotnetBuildProjects(def pipeline){
