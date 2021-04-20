@@ -2,7 +2,7 @@ package devops.ci
 
 import devops.ci.*
 
-class PrebuildScriptsDotnetCore implements Serializable {
+class DotnetAssembyVersion implements Serializable {
 
   private Object applications
   private String version
@@ -11,7 +11,7 @@ class PrebuildScriptsDotnetCore implements Serializable {
 
   private def pipeline
 
-  PrebuildScriptsDotnetCore(def pipeline){
+  DotnetAssembyVersion(def pipeline){
     this.pipeline = pipeline
   }
 
