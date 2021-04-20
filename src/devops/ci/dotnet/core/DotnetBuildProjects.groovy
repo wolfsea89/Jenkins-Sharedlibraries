@@ -45,18 +45,13 @@ class DotnetBuildProjects implements Serializable {
 
       if(this.pipeline.fileExists(project.path)){
 
-          def command = "dotnet build ${project.path} "
-          command += project.buildParameters ? project.buildParameters : this.parameters
+        def command = "dotnet build ${project.path} "
+        command += project.buildParameters ? project.buildParameters : this.parameters
 
-          def buildRuntimes = project.runtimes ? project.runtimes : this.runtimes
+        def buildRuntimes = project.runtimes ? project.runtimes : this.runtimes
+        for( buildRuntime in buildRuntimes){
 
-          this.pipeline.println(buildRuntimes)
-          for( buildRuntime in buildRuntimes){
-            this.pipeline.println(buildRuntime)
-            command += " --runtime " + buildRuntime
-          }
-
-          command += " --runtime " project.buildParameters ? project.buildParameters : this.parameters
+          command += " --runtime " + buildRuntime
 
           this.pipeline.println('$> ' + command)
 
@@ -70,6 +65,8 @@ class DotnetBuildProjects implements Serializable {
           } else {
             this.pipeline.println("SUCCESS: Build project success: ${project.path}")
           }
+
+        }
 
       } else {
           this.pipeline.error("FAILED: Build project file not found: ${project.path}")
