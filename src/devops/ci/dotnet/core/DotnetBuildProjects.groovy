@@ -6,7 +6,7 @@ class DotnetBuildProjects implements Serializable {
   private Object projects
   private String binaryDirectory = 'b'
   private String publishDirectory = 'p'
-  private String runtime = 'linux-x64'
+  private String runtimes = '[ "linux-x64" ]'
   private String parameters = "-configuration Release --verbosity normal"
   private def pipeline
 
@@ -29,8 +29,8 @@ class DotnetBuildProjects implements Serializable {
     return this
   }
 
-  public DotnetBuildProjects setRuntime(String runtime){
-    this.runtime = runtime
+  public DotnetBuildProjects setRuntimes(String runtimes){
+    this.runtimes = runtimes
     return this
   }
 
@@ -46,7 +46,13 @@ class DotnetBuildProjects implements Serializable {
       if(this.pipeline.fileExists(project.path)){
 
           def command = "dotnet build ${project.path} "
-          command += project.runtime ? project.runtime : this.runtime
+          command += project.buildParameters ? project.buildParameters : this.parameters
+
+          def buildRuntimes = project.runtimes ? project.runtimes : this.runtimes
+
+          this.pipeline.println(buildRuntimes)
+          for ()
+
           command += " --runtime " project.buildParameters ? project.buildParameters : this.parameters
 
           this.pipeline.println('$> ' + command)
