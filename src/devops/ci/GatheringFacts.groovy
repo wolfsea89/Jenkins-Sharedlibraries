@@ -17,9 +17,11 @@ class GatheringFacts implements Serializable {
     public String versionWithBuildNumber
     public String jenkinsScriptDirectory
     public Object applicationConfiguration
-    public Object publishRepositories
     public String artifactType
+    // docker parameters
+    public Object publishRepositories
     public String baseImagesAdminCredentialsInService
+    // dotnet Core parameters
     public String binaryDirectory
     public String publishDirectory
     public Object dotnetCoreRuntimes

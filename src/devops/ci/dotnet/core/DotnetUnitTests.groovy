@@ -37,7 +37,7 @@ class DotnetUnitTests implements Serializable {
   public void runUnitTest(){
     def unitTestProjects = this.solutions ? this.solutions : this.projects
 
-     for(unitTestProject in this.unitTestProjects){
+     for(unitTestProject in unitTestProjects){
 
       if(this.pipeline.fileExists(unitTestProject.path)){
 
