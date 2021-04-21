@@ -52,6 +52,8 @@ class DotnetUnitTests implements Serializable {
             returnStatus: true
           )
 
+          this.pipeline.println(unitTestProjectUnitTestdStatus)
+
           if(unitTestProjectUnitTestdStatus != 0){
             this.pipeline.error("FAILED: Unit test failed: ${unitTestProject.path}")
           } else {
