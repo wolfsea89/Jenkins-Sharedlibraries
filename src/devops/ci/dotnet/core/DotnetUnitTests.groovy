@@ -43,7 +43,7 @@ class DotnetUnitTests implements Serializable {
 
           def command = "dotnet test ${unitTestProject.path} "
           command += unitTestProject.buildParameters ? unitTestProject.buildParameters : this.parameters
-          commans += " --results-directory " + this.resultsDirectory
+          command += " --results-directory " + this.resultsDirectory
 
           this.pipeline.println('$> ' + command)
 
