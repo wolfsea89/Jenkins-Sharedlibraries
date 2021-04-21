@@ -63,7 +63,7 @@ class GatheringFacts implements Serializable {
         String workspace,
         String jenkinsScriptDirectory,
         String gitCredentialId,
-        String applicationJsonFile,
+        String applicationJsonFile
     ){
         this.jobName = jobName
         this.jobBuildNumber = jobBuildNumber
@@ -78,7 +78,7 @@ class GatheringFacts implements Serializable {
 
     public GatheringFacts setDockerEnvironments(
         String baseImagesAdminCredentialsInService,
-        Object publishRepositories,
+        Object publishRepositories
     ){
         this.baseImagesAdminCredentialsInService = baseImagesAdminCredentialsInService
         this.publishRepositories = publishRepositories
