@@ -52,7 +52,11 @@ class DotnetUnitTests implements Serializable {
             returnStatus: true
           )
 
-          this.pipeline.println(unitTestProjectUnitTestdStatus)
+          try{
+            this.pipeline.mstest testResultsFile:"${this.resultsDirectory}/*.trx", keepLongStdio: true
+          } catch (Exception e){
+            this.pipeline.unstable("WARINGG: No Unit test: ${unitTestProject.path}")
+          }
 
           if(unitTestProjectUnitTestdStatus != 0){
             this.pipeline.error("FAILED: Unit test failed: ${unitTestProject.path}")
