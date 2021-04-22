@@ -54,11 +54,8 @@ class DotnetUnitTests implements Serializable {
             returnStatus: true
           )
 
-          try{
-            this.pipeline.mstest testResultsFile:"${this.resultsDirectory}/*.trx", keepLongStdio: true
-          } catch (Exception e){
-            this.pipeline.unstable("WARNING: No Unit test: ${unitTestProject.path}")
-          }
+          this.readUnitTestFiles()
+          this.readCodeCoverageFiles()
 
           if(unitTestProjectUnitTestdStatus != 0){
             this.pipeline.error("FAILED: Unit test failed: ${unitTestProject.path}")
@@ -69,6 +66,22 @@ class DotnetUnitTests implements Serializable {
       } else {
           this.pipeline.error("FAILED: Unit test file not found: ${unitTestProject.path}")
       }
+    }
+  }
+
+  private void readUnitTestFiles(){
+    try{
+      this.pipeline.mstest testResultsFile:"${this.resultsDirectory}/*.trx", keepLongStdio: true
+    } catch (Exception e){
+      this.pipeline.unstable("WARNING: No Unit test: ${unitTestProject.path}")
+    }
+  }
+
+  public void readCodeCoverageFiles(){
+    try{
+      this.pipeline.cobertura coberturaReportFile: 'TestResults/**/*.xml'
+    } catch (Exception e){
+      this.pipeline.unstable("WARNING: Error read Code Coverage files")
     }
   }
 }
