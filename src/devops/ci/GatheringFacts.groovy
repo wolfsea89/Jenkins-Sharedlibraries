@@ -26,7 +26,7 @@ class GatheringFacts implements Serializable {
     public String publishDirectory
     public Object dotnetCoreRuntimes
     public String dotnetCoreTestResultsDirectory
-    public String dotnetCoreDisableUnitTest
+    public Boolean dotnetCoreDisableUnitTest
 
     GatheringFacts(){ }
 
