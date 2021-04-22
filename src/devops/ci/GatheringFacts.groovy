@@ -26,7 +26,7 @@ class GatheringFacts implements Serializable {
     public String publishDirectory
     public Object dotnetCoreRuntimes
     public String dotnetCoreTestResultsDirectory
-    public String dotnetCoreDisableUnitTest
+    public Boolean dotnetCoreDisableUnitTest
 
     GatheringFacts(){ }
 
@@ -99,7 +99,7 @@ class GatheringFacts implements Serializable {
         this.publishDirectory = publishDirectory
         this.dotnetCoreRuntimes = dotnetCoreRuntimes
         this.dotnetCoreTestResultsDirectory = dotnetCoreTestResultsDirectory
-        this.dotnetCoreDisableUnitTest = dotnetCoreDisableUnitTest
+        this.dotnetCoreDisableUnitTest = (dotnetCoreDisableUnitTest == 'true' || dotnetCoreDisableUnitTest = 1) ? true: false
         return this
     }
 
