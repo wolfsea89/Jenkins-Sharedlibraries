@@ -17,12 +17,16 @@ class GatheringFacts implements Serializable {
     public String versionWithBuildNumber
     public String jenkinsScriptDirectory
     public Object applicationConfiguration
-    public Object publishRepositories
     public String artifactType
+    // docker parameters
+    public Object publishRepositories
     public String baseImagesAdminCredentialsInService
+    // dotnet Core parameters
     public String binaryDirectory
     public String publishDirectory
     public Object dotnetCoreRuntimes
+    public String dotnetCoreTestResultsDirectory
+    public Boolean dotnetCoreDisableUnitTest
 
     GatheringFacts(){ }
 
@@ -62,12 +66,7 @@ class GatheringFacts implements Serializable {
         String workspace,
         String jenkinsScriptDirectory,
         String gitCredentialId,
-        String applicationJsonFile,
-        String baseImagesAdminCredentialsInService,
-        Object publishRepositories,
-        String binaryDirectory,
-        String publishDirectory,
-        Object dotnetCoreRuntimes
+        String applicationJsonFile
     ){
         this.jobName = jobName
         this.jobBuildNumber = jobBuildNumber
@@ -75,11 +74,32 @@ class GatheringFacts implements Serializable {
         this.jenkinsScriptDirectory = jenkinsScriptDirectory
         this.gitCredentialId = gitCredentialId
         this.applicationJsonFile = applicationJsonFile
+
+
+        return this
+    }
+
+    public GatheringFacts setDockerEnvironments(
+        String baseImagesAdminCredentialsInService,
+        Object publishRepositories
+    ){
         this.baseImagesAdminCredentialsInService = baseImagesAdminCredentialsInService
         this.publishRepositories = publishRepositories
+        return this
+    }
+
+    public GatheringFacts setDotnetEnvironments(
+        String binaryDirectory,
+        String publishDirectory,
+        Object dotnetCoreRuntimes,
+        String dotnetCoreTestResultsDirectory,
+        String dotnetCoreDisableUnitTest
+    ){
         this.binaryDirectory = binaryDirectory
         this.publishDirectory = publishDirectory
         this.dotnetCoreRuntimes = dotnetCoreRuntimes
+        this.dotnetCoreTestResultsDirectory = dotnetCoreTestResultsDirectory
+        this.dotnetCoreDisableUnitTest = (dotnetCoreDisableUnitTest == 'true' || dotnetCoreDisableUnitTest == 1) ? true: false
         return this
     }
 
