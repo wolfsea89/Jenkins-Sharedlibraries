@@ -55,7 +55,7 @@ class DotnetUnitTests implements Serializable {
           try{
             this.pipeline.mstest testResultsFile:"${this.resultsDirectory}/*.trx", keepLongStdio: true
           } catch (Exception e){
-            this.pipeline.unstable("WARINGG: No Unit test: ${unitTestProject.path}")
+            this.pipeline.unstable("WARNING: No Unit test: ${unitTestProject.path}")
           }
 
           if(unitTestProjectUnitTestdStatus != 0){
