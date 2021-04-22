@@ -6,7 +6,7 @@ class DotnetUnitTests implements Serializable {
   private Object projects
   private Object solutions
   private String resultsDirectory = "TestResults"
-  private String parameters = "--verbosity normal --logger \"trx\" --collect:\"Code Coverage\""
+  private String parameters = '--verbosity normal --logger "trx" --collect "Code Coverage"'
 
   private def pipeline
 
