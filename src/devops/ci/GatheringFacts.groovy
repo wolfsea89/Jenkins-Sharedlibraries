@@ -93,7 +93,7 @@ class GatheringFacts implements Serializable {
         String publishDirectory,
         Object dotnetCoreRuntimes,
         String dotnetCoreTestResultsDirectory,
-        String dotnetCoreDisableUnitTest
+        Boolean dotnetCoreDisableUnitTest
     ){
         this.binaryDirectory = binaryDirectory
         this.publishDirectory = publishDirectory
