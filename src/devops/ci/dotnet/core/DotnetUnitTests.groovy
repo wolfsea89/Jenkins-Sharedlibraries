@@ -41,9 +41,10 @@ class DotnetUnitTests implements Serializable {
 
       if(this.pipeline.fileExists(unitTestProject.path)){
 
-          def command = "dotnet test ${unitTestProject.path} "
+          def command = "dotnet test"
           command += " --results-directory " + this.resultsDirectory + " "
           command += unitTestProject.buildParameters ? unitTestProject.buildParameters : this.parameters
+          command += unitTestProject.path
 
 
           this.pipeline.println('$> ' + command)
