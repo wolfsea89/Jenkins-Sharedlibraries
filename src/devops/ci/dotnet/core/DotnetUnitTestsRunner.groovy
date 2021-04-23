@@ -34,7 +34,7 @@ class DotnetUnitTestsRunner implements Serializable {
     return this
   }
 
-  public void runUnitTest(){
+  public String runUnitTest(){
     def unitTestProjects = this.solutions ? this.solutions : this.projects
 
       def command = ""
@@ -43,8 +43,8 @@ class DotnetUnitTestsRunner implements Serializable {
 
           // test *.csproj or *.sln exist
           command += """
-          if test -f \"${unitTestProject.path}\"; then \\"
-            dotnet test --results-directory ${this.resultsDirectory} \
+          if test -f \"${unitTestProject.path}\"; then \\
+            dotnet test --results-directory ${this.resultsDirectory} \\
               ${unitTestProject.buildParameters ? unitTestProject.buildParameters : this.parameters} \\
               ${unitTestProject.path} ;\\
             fi [ \$? -eq 0 ]; then \\
@@ -54,15 +54,16 @@ class DotnetUnitTestsRunner implements Serializable {
               echo \"SUCCESS: Unit test success: ${unitTestProject.path}\" \\
             fi \\
           else \\
-            echo \"FAILED: Unit test file not found: ${unitTestProject.path}\" \
+            echo \"FAILED: Unit test file not found: ${unitTestProject.path}\" \\
             exit 1
           fi \\"""
 
       this.pipeline.println('$> ' + command)
-      // def unitTestProjectUnitTestdStatus = this.pipeline.sh(
-      //       script: command,
-      //       returnStatus: true
-      //     )
+      def unitTestProjectUnitTestdStatus = this.pipeline.sh(
+            script: command,
+            returnStatus: true
+          )
+      return command
     }
   }
 }
