@@ -49,16 +49,19 @@ if test -f \"${unitTestProject.path}\"; then \\
     ${unitTestProject.path} ;\\
   if [ \$? -ne 0 ]; then \\
     echo \"FAILED: Unit test failed: ${unitTestProject.path}\" ;\\
+    export UNIT_TEST_ERROR = 1; \\
     exit 1 ; \\
   else \\
     echo \"SUCCESS: Unit test success: ${unitTestProject.path}\" ;\\
   fi \\
 else \\
   echo \"FAILED: Unit test file not found: ${unitTestProject.path}\" ;\\
+  export UNIT_TEST_ERROR = 1; \\
   exit 1 ;\\
-fi
+fi \\
 """
     }
+    command += "fi [ \$UNIT_TEST_ERROR -ne 0 ]; then Exit 1; fi \\"
     this.pipeline.println('$> ' + command)
     def unitTestProjectUnitTestdStatus = this.pipeline.sh(
             script: command,
