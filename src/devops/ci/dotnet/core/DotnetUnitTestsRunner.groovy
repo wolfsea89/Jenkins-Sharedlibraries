@@ -56,10 +56,9 @@ if test -f \"${unitTestProject.path}\"; then \\
 else \\
   echo \"FAILED: Unit test file not found: ${unitTestProject.path}\" ;\\
   exit 1 ;\\
-fi  &&
+fi
 """
     }
-    command += "echo \"OK\""
     this.pipeline.println('$> ' + command)
     def unitTestProjectUnitTestdStatus = this.pipeline.sh(
             script: command,
