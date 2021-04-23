@@ -75,7 +75,6 @@ class GatheringFacts implements Serializable {
         this.gitCredentialId = gitCredentialId
         this.applicationJsonFile = applicationJsonFile
 
-
         return this
     }
 
