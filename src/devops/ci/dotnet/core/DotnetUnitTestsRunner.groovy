@@ -42,7 +42,7 @@ class DotnetUnitTestsRunner implements Serializable {
      for(unitTestProject in unitTestProjects){
 
           // test *.csproj or *.sln exist
-          command += """export UNIT_TEST_ERROR=0 &&
+          command += """export UNIT_TEST_ERROR=0 && \\
 if test -f \"${unitTestProject.path}\"; then \\
   dotnet test --results-directory ${this.resultsDirectory} \\
     ${unitTestProject.buildParameters ? unitTestProject.buildParameters : this.parameters} \\
