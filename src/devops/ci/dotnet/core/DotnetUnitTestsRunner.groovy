@@ -64,7 +64,6 @@ class DotnetUnitTestsRunner implements Serializable {
             script: command,
             returnStatus: true
     )
-      return command
-    }
+    return command
   }
 }
