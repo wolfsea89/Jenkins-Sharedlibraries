@@ -58,7 +58,7 @@ else \\
   echo \"FAILED: Unit test file not found: ${unitTestProject.path}\" ;\\
   export UNIT_TEST_ERROR=1; \\
   exit 1 ;\\
-fi \\
+fi &&
 """
     }
     command += "fi [ \$UNIT_TEST_ERROR -ne 0 ]; then echo \"\$UNIT_TEST_ERROR\" && export UNIT_TEST_ERROR=0 && exit 1; fi "
