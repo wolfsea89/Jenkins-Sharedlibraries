@@ -47,7 +47,7 @@ class DotnetUnitTestsRunner implements Serializable {
             dotnet test --results-directory ${this.resultsDirectory} \
               ${unitTestProject.buildParameters ? unitTestProject.buildParameters : this.parameters} \\
               ${unitTestProject.path} ;\\
-            fi [ $? -eq 0 ]; then \\
+            fi [ \$? -eq 0 ]; then \\
               echo \"FAILED: Unit test failed: ${unitTestProject.path}\" \\
               exit 1
             else
@@ -58,38 +58,11 @@ class DotnetUnitTestsRunner implements Serializable {
             exit 1
           fi \\"""
 
-
-          // if(unitTestProjectUnitTestdStatus != 0){
-          //   this.pipeline.error("FAILED: Unit test failed: ${unitTestProject.path}")
-          // } else {
-          //   this.pipeline.println("SUCCESS: Unit test success: ${unitTestProject.path}")
-          // }
-
-      // } else {
-      //     this.pipeline.error("FAILED: Unit test file not found: ${unitTestProject.path}")
-      // }
-
       this.pipeline.println('$> ' + command)
       // def unitTestProjectUnitTestdStatus = this.pipeline.sh(
       //       script: command,
       //       returnStatus: true
       //     )
-    }
-  }
-
-  private void readUnitTestFiles(){
-    try{
-      this.pipeline.mstest testResultsFile:"${this.resultsDirectory}/*.trx", keepLongStdio: true
-    } catch (Exception e){
-      this.pipeline.unstable("WARNING: No Unit test: ${unitTestProject.path}")
-    }
-  }
-
-  public void readCodeCoverageFiles(){
-    try{
-      this.pipeline.cobertura coberturaReportFile: 'TestResults/**/*.xml'
-    } catch (Exception e){
-      this.pipeline.unstable("WARNING: Error read Code Coverage files")
     }
   }
 }
