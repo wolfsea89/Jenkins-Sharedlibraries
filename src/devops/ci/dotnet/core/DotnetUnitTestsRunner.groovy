@@ -56,13 +56,14 @@ class DotnetUnitTestsRunner implements Serializable {
           else \\
             echo \"FAILED: Unit test file not found: ${unitTestProject.path}\" ;\\
             exit 1 ;\\
-          fi \\"""
+          fi """
+    }
 
-      this.pipeline.println('$> ' + command)
-      def unitTestProjectUnitTestdStatus = this.pipeline.sh(
+    this.pipeline.println('$> ' + command)
+    def unitTestProjectUnitTestdStatus = this.pipeline.sh(
             script: command,
             returnStatus: true
-          )
+    )
       return command
     }
   }
