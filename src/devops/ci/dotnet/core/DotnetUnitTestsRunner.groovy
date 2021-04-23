@@ -43,20 +43,21 @@ class DotnetUnitTestsRunner implements Serializable {
 
           // test *.csproj or *.sln exist
           command += """
-          if test -f \"${unitTestProject.path}\"; then \\
-            dotnet test --results-directory ${this.resultsDirectory} \\
-              ${unitTestProject.buildParameters ? unitTestProject.buildParameters : this.parameters} \\
-              ${unitTestProject.path} ;\\
-            if [ \$? -eq 0 ]; then \\
-              echo \"FAILED: Unit test failed: ${unitTestProject.path}\" ;\\
-              exit 1 ; \\
-            else \\
-              echo \"SUCCESS: Unit test success: ${unitTestProject.path}\" ;\\
-            fi \\
-          else \\
-            echo \"FAILED: Unit test file not found: ${unitTestProject.path}\" ;\\
-            exit 1 ;\\
-          fi  && """
+if test -f \"${unitTestProject.path}\"; then \\
+  dotnet test --results-directory ${this.resultsDirectory} \\
+    ${unitTestProject.buildParameters ? unitTestProject.buildParameters : this.parameters} \\
+    ${unitTestProject.path} ;\\
+  if [ \$? -ne 0 ]; then \\
+    echo \"FAILED: Unit test failed: ${unitTestProject.path}\" ;\\
+    exit 1 ; \\
+  else \\
+    echo \"SUCCESS: Unit test success: ${unitTestProject.path}\" ;\\
+  fi \\
+else \\
+  echo \"FAILED: Unit test file not found: ${unitTestProject.path}\" ;\\
+  exit 1 ;\\
+fi  &&
+"""
     }
     command += "echo \"OK\""
     this.pipeline.println('$> ' + command)
