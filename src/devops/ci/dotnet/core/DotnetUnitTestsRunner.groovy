@@ -50,7 +50,7 @@ class DotnetUnitTestsRunner implements Serializable {
             if [ \$? -eq 0 ]; then \\
               echo \"FAILED: Unit test failed: ${unitTestProject.path}\" ;\\
               exit 1 ; \\
-            else
+            else \\
               echo \"SUCCESS: Unit test success: ${unitTestProject.path}\" ;\\
             fi \\
           else \\
