@@ -10,7 +10,7 @@ class Version implements Serializable {
     def version = "${now.format('yyyy.M.d', TimeZone.getTimeZone('UTC'))}"
 
     if (branchNamePrefix ==~ /release|hotfix|master/) {
-            
+
         if(manualVersion){
             version = "${manualVersion}"
         } else {

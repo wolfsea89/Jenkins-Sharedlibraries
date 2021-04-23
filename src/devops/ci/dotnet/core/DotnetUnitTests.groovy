@@ -6,7 +6,7 @@ class DotnetUnitTests implements Serializable {
   private Object projects
   private Object solutions
   private String resultsDirectory = "TestResults"
-  private String parameters = '--verbosity normal --logger "trx" --collect "Code Coverage"'
+  private String parameters = '--verbosity:normal --logger:"trx" --collect:"XPlat Code Coverage"'
 
   private def pipeline
 
@@ -54,9 +54,6 @@ class DotnetUnitTests implements Serializable {
             returnStatus: true
           )
 
-          this.readUnitTestFiles()
-          this.readCodeCoverageFiles()
-
           if(unitTestProjectUnitTestdStatus != 0){
             this.pipeline.error("FAILED: Unit test failed: ${unitTestProject.path}")
           } else {
@@ -66,22 +63,6 @@ class DotnetUnitTests implements Serializable {
       } else {
           this.pipeline.error("FAILED: Unit test file not found: ${unitTestProject.path}")
       }
-    }
-  }
-
-  private void readUnitTestFiles(){
-    try{
-      this.pipeline.mstest testResultsFile:"${this.resultsDirectory}/*.trx", keepLongStdio: true
-    } catch (Exception e){
-      this.pipeline.unstable("WARNING: No Unit test: ${unitTestProject.path}")
-    }
-  }
-
-  public void readCodeCoverageFiles(){
-    try{
-      this.pipeline.cobertura coberturaReportFile: 'TestResults/**/*.xml'
-    } catch (Exception e){
-      this.pipeline.unstable("WARNING: Error read Code Coverage files")
     }
   }
 }

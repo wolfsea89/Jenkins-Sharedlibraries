@@ -3,7 +3,7 @@ package devops.ci
 class CheckBranch implements Serializable {
 
     public String branchNamePrefix
-    private String branchName
+    public String branchName
 
     CheckBranch(String branchName){
         this.branchName = branchName
@@ -22,7 +22,7 @@ class CheckBranch implements Serializable {
             return true
         }
     }
-    
+
     @NonCPS
     public Boolean isEpicFeature(){
         if (this.branchName ==~ /(.*\/epicfeature)|(epicfeature)\/.*$/){
