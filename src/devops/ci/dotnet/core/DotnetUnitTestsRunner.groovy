@@ -61,7 +61,7 @@ else \\
 fi \\
 """
     }
-    command += "fi [ \$UNIT_TEST_ERROR -ne 0 ]; then Exit 1; fi \\"
+    command += "fi [ \$UNIT_TEST_ERROR -ne 0 ]; then echo \"\$UNIT_TEST_ERROR\" Exit 1; fi \\"
     this.pipeline.println('$> ' + command)
     def unitTestProjectUnitTestdStatus = this.pipeline.sh(
             script: command,
