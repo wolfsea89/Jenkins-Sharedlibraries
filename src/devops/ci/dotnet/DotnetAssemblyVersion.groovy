@@ -25,6 +25,7 @@ class DotnetAssemblyVersion implements Serializable {
 
   public DotnetAssemblyVersion setJenkinsJobInfo(String jobName, String jobBuildNumber){
     this.jenkinsInfo = "Created by Jenkins job: " + jobName + ':#' + jobBuildNumber
+    return this
   }
 
   public void execute(){
