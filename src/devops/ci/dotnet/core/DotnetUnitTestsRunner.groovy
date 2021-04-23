@@ -48,6 +48,7 @@ class DotnetUnitTestsRunner implements Serializable {
           command += "--results-directory " + this.resultsDirectory + " "
           command += unitTestProject.buildParameters ? unitTestProject.buildParameters : this.parameters
           command += " " + unitTestProject.path + ";\\"
+          command += "fi \\"
 
 
           // if(unitTestProjectUnitTestdStatus != 0){
