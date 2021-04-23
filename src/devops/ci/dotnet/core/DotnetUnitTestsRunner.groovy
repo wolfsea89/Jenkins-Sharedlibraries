@@ -42,7 +42,7 @@ class DotnetUnitTestsRunner implements Serializable {
      for(unitTestProject in unitTestProjects){
 
           // test *.csproj or *.sln exist
-          command += """
+          command += """export UNIT_TEST_ERROR=0 &&
 if test -f \"${unitTestProject.path}\"; then \\
   dotnet test --results-directory ${this.resultsDirectory} \\
     ${unitTestProject.buildParameters ? unitTestProject.buildParameters : this.parameters} \\
@@ -61,7 +61,7 @@ else \\
 fi &&
 """
     }
-    command += "fi [ \$UNIT_TEST_ERROR -ne 0 ]; then echo \"\$UNIT_TEST_ERROR\" && export UNIT_TEST_ERROR=0 && exit 1; fi "
+    command += "if [ \$UNIT_TEST_ERROR -ne 0 ]; then echo \"\$UNIT_TEST_ERROR\" && export UNIT_TEST_ERROR=0 && exit 1; fi "
     this.pipeline.println('$> ' + command)
     def unitTestProjectUnitTestdStatus = this.pipeline.sh(
             script: command,
